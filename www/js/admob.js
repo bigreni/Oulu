@@ -121,12 +121,12 @@
     }
 
     function loadInterstitial() {
-        AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+        AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: true, autoShow: true });
     }
 
    function checkFirstUse()
     {
-        var currentVersion = 4;
+        var currentVersion = 1;
         var p = window.localStorage.getItem("currentVersion");
         if (p == null) //App downloaded first time
         {
