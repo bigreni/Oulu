@@ -121,7 +121,7 @@
     }
 
     function loadInterstitial() {
-        AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: true, autoShow: true });
+        AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
     }
 
    function checkFirstUse()
@@ -155,7 +155,7 @@ function askRating()
   usesUntilPrompt: 10,
   promptAgainForEachNewVersion: true,
   storeAppURL: {
-                android: 'market://details?id=com.tampere.withads'
+                android: 'market://details?id=com.oulu.withads'
                }
 };
  
