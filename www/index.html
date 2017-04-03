@@ -11,6 +11,24 @@
 <!-- Include the jQuery Mobile library -->
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <title>Oulu Bussi</title>
+    <style>
+            /* Hide all the app pages until jQuery Mobile inits to
+               avoid the Flash of Unstyled Content */
+            .splashscreen {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index:1001;
+                background: lightgrey;
+                text-shadow: none;
+                color: black;
+            }
+        </style>
 
 </head>
 <body>
