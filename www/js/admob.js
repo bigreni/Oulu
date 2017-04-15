@@ -9,11 +9,17 @@
     if (/(android)/i.test(navigator.userAgent)) {
         admobid = { // for Android
             banner: 'ca-app-pub-1683858134373419/7790106682',
-            interstitial:'ca-app-pub-1683858134373419/5114437883'
+            interstitial:'ca-app-pub-9249695405712287/9772015955'
             //banner: 'ca-app-pub-3886850395157773/3411786244'
             //interstitial: 'ca-app-pub-9249695405712287/3301233156'
         };
     }
+        else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+     admobid = {
+            banner: 'ca-app-pub-1683858134373419/7790106682',
+            interstitial:'ca-app-pub-9249695405712287/6678948755'
+    };
+  }
 
     function initApp() {
         if (!AdMob) { alert('admob plugin not ready'); return; }
