@@ -88,6 +88,8 @@
                     {
                         document.getElementById('frmPlanner').src = 'Planner.html';
                     }
+                    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    document.getElementById('frmPlanner').style.width = width;
              }
             else
             {
