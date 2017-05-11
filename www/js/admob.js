@@ -81,6 +81,21 @@
 
    function checkFirstUse()
     {
+             $('#simplemenu').sidr();
+             if(/(ipod|iphone|ipad)/i.test(navigator.userAgent))
+             {
+                 if(document.getElementById('frmPlanner').src == '')
+                    {
+                        document.getElementById('frmPlanner').src = 'Planner.html';
+                    }
+             }
+            else
+            {
+                 if(document.getElementById('frmPlanner').src == '')
+                    {
+                        document.getElementById('frmPlanner').src = 'https://beta.digitransit.fi';
+                    }
+            }
             //askRating();
             //initApp();
             document.getElementById('fullpage').style.visibility = 'visible';

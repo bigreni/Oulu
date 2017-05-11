@@ -23,7 +23,7 @@
 body {
 	width: 100%;
 	height: 100%;
-	margin: 0;
+	margin: 0px;
 	padding: 0;
 	overflow: hidden;
 }
@@ -31,11 +31,11 @@ body {
 div#fullpage {
 	width: 100%;
 	height: 100%;
-	margin: 0;
+	margin: 0px;
 	padding: 0;
 }
 
-/*a:link {
+a:link {
     color: #000;
     text-decoration: none;
 }
@@ -53,22 +53,10 @@ a:hover {
 a:active {
     color: #000;
     text-decoration: none;
-}*/
+}
 
 a.langOption{
     text-decoration: none;
-}
-
-a.backButton{
-    text-decoration: initial;
-}
-
-h3.proverbTitle {
-    background-color: #ccefdb;
-}
-
-a.backButton {
-    background-color: #ccefdb;
 }
 
 p.title{
@@ -77,19 +65,6 @@ p.title{
     font-style: italic;
     text-align: center;
 }
-
-h1.selectLanguage {
-    margin: 10px 0 10px 0;
-    /*background-color: #ccefdb;*/
-}
-
-.ui-page .ui-content .ui-listview .ui-li-desc {
-    white-space : normal;
-}
-
-.ui-page .ui-content .ui-listview .ui-li-heading {
-    white-space : normal;
-}​​
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
@@ -110,6 +85,10 @@ h1 {
     text-align:center;
 }
 
+h3 {
+ -webkit-margin-before: 0;
+ -webkit-margin-after: 0; 
+}
 
 @keyframes fade {
     from { opacity: 1.0; }
