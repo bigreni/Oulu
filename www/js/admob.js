@@ -86,7 +86,7 @@
              {
                  if(document.getElementById('frmPlanner').src == '')
                     {
-                        document.getElementById('frmPlanner').src = 'Planner.html';
+                        document.getElementById('frmPlanner').src = 'Tripplanner.html';
                     }
              }
             else
