@@ -80,9 +80,9 @@
    function checkFirstUse()
     {
              $('#simplemenu').sidr();
-            //askRating();
-            //initApp();
-            document.getElementById('screen').style.display = 'none';            
+            initApp();
+            askRating();
+            //document.getElementById('screen').style.display = 'none';            
     }
 
 function askRating()
