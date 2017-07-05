@@ -51,14 +51,12 @@
     function registerAdEvents() {
         // new events, with variable to differentiate: adNetwork, adType, adEvent
         document.addEventListener('onAdFailLoad', function (data) {
-            document.getElementById('fullpage').style.visibility = 'visible';
             document.getElementById('screen').style.display = 'none';
         });
         document.addEventListener('onAdLoaded', function (data) { });
         document.addEventListener('onAdPresent', function (data) { });
         document.addEventListener('onAdLeaveApp', function (data) { });
         document.addEventListener('onAdDismiss', function (data) {
-            document.getElementById('fullpage').style.visibility = 'visible';
             document.getElementById('screen').style.display = 'none';            
 		});
     }
@@ -82,23 +80,8 @@
    function checkFirstUse()
     {
              $('#simplemenu').sidr();
-             if(/(ipod|iphone|ipad)/i.test(navigator.userAgent))
-             {
-                 if(document.getElementById('frmPlanner').src == '')
-                    {
-                        document.getElementById('frmPlanner').src = 'Tripplanner.html';
-                    }
-             }
-            else
-            {
-                 if(document.getElementById('frmPlanner').src == '')
-                    {
-                        document.getElementById('frmPlanner').src = 'https://beta.digitransit.fi';
-                    }
-            }
             //askRating();
             //initApp();
-            document.getElementById('fullpage').style.visibility = 'visible';
             document.getElementById('screen').style.display = 'none';            
     }
 
