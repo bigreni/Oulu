@@ -2,9 +2,10 @@
 <widget 
 id="com.oulu.withads" 
 version="1.0.2"
-versionCode = "4" 
+versionCode = "5" 
 xmlns="http://www.w3.org/ns/widgets"
 xmlns:gap="http://phonegap.com/ns/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
 >
     <name>Oulu Reittiopas</name>
     <description>
@@ -39,6 +40,12 @@ xmlns:gap="http://phonegap.com/ns/1.0"
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="cordova-plugin-dialogs" source="npm"/>
     <gap:plugin name="cordova-plugin-apprate" source="npm"/>
+    <gap:plugin name="cordova-plugin-google-analytics" source="npm"/>
+    <gap:plugin name="cordova.plugins.diagnostic" source="npm" />
+    <gap:config-file platform="android" parent="/manifest" mode="add">
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    </gap:config-file>
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />

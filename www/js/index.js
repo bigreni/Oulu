@@ -53,6 +53,7 @@ function showMap()
     if(document.getElementById('frmMap').src == '')
     {
         document.getElementById('frmMap').src = 'http://jl.oulunliikenne.fi/#/schedules/home';
+        document.getElementById('frmMap').setAttribute('allow', 'geolocation *;');
     }
     document.getElementById('divMap').style.display = 'block';
     document.getElementById('divPlanner').style.display = 'none';    
