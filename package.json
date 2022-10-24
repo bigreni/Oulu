@@ -17,7 +17,6 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-admobpro": {},
       "cordova-admobsdk": {},
       "cordova-plugin-device": {},
       "cordova-plugin-apprate": {},
@@ -25,7 +24,11 @@
       "cordova-plugin-idfa": {},
       "cordova-plugin-inappbrowser": {},
       "cordova.plugins.diagnostic": {},
-      "cordova-plugin-wkwebview-file-xhr": {}
+      "cordova-plugin-wkwebview-file-xhr": {},
+      "cordova-plugin-admobpro": {
+        "ADMOB_ANDROID_APP_ID": "ca-app-pub-1855415514372943~9063671314",
+        "PLAY_SERVICES_VERSION": "20.4.0"
+      }
     },
     "platforms": [
       "android"

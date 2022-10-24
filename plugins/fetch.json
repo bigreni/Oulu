@@ -1,15 +1,4 @@
 {
-  "cordova-plugin-admobpro": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-admobpro"
-    },
-    "is_top_level": true,
-    "variables": {
-      "ADMOB_ANDROID_APP_ID": "ca-app-pub-1855415514372943~9063671314",
-      "PLAY_SERVICES_VERSION": "20.4.0"
-    }
-  },
   "cordova-admobsdk": {
     "source": {
       "type": "registry",
@@ -111,5 +100,16 @@
     },
     "is_top_level": false,
     "variables": {}
+  },
+  "cordova-plugin-admobpro": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-admobpro"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ADMOB_ANDROID_APP_ID": "ca-app-pub-1855415514372943~9063671314",
+      "PLAY_SERVICES_VERSION": "20.4.0"
+    }
   }
 }
