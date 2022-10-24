@@ -22,30 +22,27 @@
   }
 
     function initApp() {
+        alert('1');
         if (!AdMob) { alert('admob plugin not ready'); return; }
+        alert('2');
         initAd();
         // display the banner at startup
         //createSelectedBanner();
         //display interstitial at startup
+        alert('3');
         loadInterstitial();
     }
     function initAd() {
         var defaultOptions = {
-            // bannerId: admobid.banner,
-            // interstitialId: admobid.interstitial,
-            // adSize: 'SMART_BANNER',
-            // width: integer, // valid when set adSize 'CUSTOM'
-            // height: integer, // valid when set adSize 'CUSTOM'
             position: AdMob.AD_POSITION.BOTTOM_CENTER,
-            // offsetTopBar: false, // avoid overlapped by status bar, for iOS7+
             bgColor: 'black', // color name, or '#RRGGBB'
-            // x: integer,      // valid when set position to 0 / POS_XY
-            // y: integer,      // valid when set position to 0 / POS_XY
             isTesting: false // set to true, to receiving test ad for testing purpose
-            // autoShow: true // auto show interstitial ad when loaded, set to false if prepare/show
         };
-        AdMob.setOptions(defaultOptions);
+        alert('initAd 1');
+        //AdMob.setOptions(defaultOptions);
+        alert('initAd 2');
         registerAdEvents();
+        alert('initAd 3');
     }
     // optional, in case respond to events or handle error
     function registerAdEvents() {
@@ -79,7 +76,7 @@
 
     function loadInterstitial() {
         if ((/(android|windows phone)/i.test(navigator.userAgent))) {
-            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: false });
+            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: true, autoShow: false });
             //document.getElementById("screen").style.display = 'none';     
         } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
             AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: false });
@@ -92,10 +89,14 @@
 
    function checkFirstUse()
     {
-            checkLocationPermissions();
-            checkTrackingPermissions();
+            alert('1');
             initApp();
+            alert('2');
+            checkTrackingPermissions();
+            alert('3');
             askRating();
+            alert('4');
+            checkLocationPermissions();
             //document.getElementById('screen').style.display = 'none';            
     }
 
@@ -106,8 +107,11 @@
 
 function askRating()
 {
-  AppRate.preferences = {
-  openStoreInApp: true,
+    cordova.plugins.AppRate.setPreferences = {
+        reviewType: {
+            ios: 'AppStoreReview',
+            android: 'InAppBrowser'
+            },
   useLanguage:  'fi',
   usesUntilPrompt: 10,
   promptAgainForEachNewVersion: true,
@@ -168,4 +172,26 @@ function checkLocationPermissions()
     }, function (error) {
         console.error(error);
     });
+}
+
+function showMap()
+{
+    if(document.getElementById('frmMap').src == '')
+    {
+        document.getElementById('frmMap').src = 'Schedules.html';
+        //document.getElementById('frmMap').src = 'https://jl.oulunliikenne.fi/#/schedules/home';
+        document.getElementById('frmMap').setAttribute('allow', 'geolocation *;');
+    }
+    document.getElementById('divMap').style.display = 'block';
+    document.getElementById('divPlanner').style.display = 'none';    
+    document.getElementById('divPlanner').style.height = '0vh';
+    document.getElementById('divMap').style.height = '92vh';
+}
+
+function showPlanner()
+{
+    document.getElementById('divMap').style.display = 'none';
+    document.getElementById('divPlanner').style.display = 'block';
+    document.getElementById('divMap').style.height = '0vh';
+    document.getElementById('divPlanner').style.height = '92vh';
 }

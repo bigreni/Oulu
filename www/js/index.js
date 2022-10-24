@@ -48,24 +48,4 @@ var app = {
     }
 };
 
-function showMap()
-{
-    if(document.getElementById('frmMap').src == '')
-    {
-        document.getElementById('frmMap').src = 'Schedules.html';
-        //document.getElementById('frmMap').src = 'https://jl.oulunliikenne.fi/#/schedules/home';
-        document.getElementById('frmMap').setAttribute('allow', 'geolocation *;');
-    }
-    document.getElementById('divMap').style.display = 'block';
-    document.getElementById('divPlanner').style.display = 'none';    
-    document.getElementById('divPlanner').style.height = '0vh';
-    document.getElementById('divMap').style.height = '92vh';
-}
 
-function showPlanner()
-{
-    document.getElementById('divMap').style.display = 'none';
-    document.getElementById('divPlanner').style.display = 'block';
-    document.getElementById('divMap').style.height = '0vh';
-    document.getElementById('divPlanner').style.height = '92vh';
-}
