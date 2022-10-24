@@ -22,14 +22,11 @@
   }
 
     function initApp() {
-        alert('1');
         if (!AdMob) { alert('admob plugin not ready'); return; }
-        alert('2');
         initAd();
         // display the banner at startup
         //createSelectedBanner();
         //display interstitial at startup
-        alert('3');
         loadInterstitial();
     }
     function initAd() {
@@ -38,11 +35,8 @@
             bgColor: 'black', // color name, or '#RRGGBB'
             isTesting: false // set to true, to receiving test ad for testing purpose
         };
-        alert('initAd 1');
         //AdMob.setOptions(defaultOptions);
-        alert('initAd 2');
         registerAdEvents();
-        alert('initAd 3');
     }
     // optional, in case respond to events or handle error
     function registerAdEvents() {
@@ -76,8 +70,11 @@
 
     function loadInterstitial() {
         if ((/(android|windows phone)/i.test(navigator.userAgent))) {
-            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: true, autoShow: false });
-            //document.getElementById("screen").style.display = 'none';     
+            alert('load ad');
+            //AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: true, autoShow: false });
+            document.getElementById("screen").style.display = 'none';     
+
+            alert('loaded ad');
         } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
             AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: false });
             //document.getElementById("screen").style.display = 'none';     
