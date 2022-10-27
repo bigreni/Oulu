@@ -70,7 +70,7 @@
 
     function loadInterstitial() {
         if ((/(android|windows phone)/i.test(navigator.userAgent))) {
-            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: true, autoShow: false });
+            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: false });
             //document.getElementById("screen").style.display = 'none';     
         } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
             AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: false });
@@ -180,6 +180,7 @@ function showMap()
 
 function showPlanner()
 {
+    showAd();
     {
         // document.getElementById('frmMap').src = 'Schedules.html';
         document.getElementById('frmPlanner').src = 'Planner.html';
@@ -189,4 +190,16 @@ function showPlanner()
     document.getElementById('divPlanner').style.display = 'block';
     document.getElementById('divMap').style.height = '0vh';
     document.getElementById('divPlanner').style.height = '94vh';
+}
+
+function showAd()
+{
+    document.getElementById("screen").style.display = 'block';     
+    if ((/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent))) {
+        AdMob.isInterstitialReady(function(isready){
+            if(isready) 
+                AdMob.showInterstitial();
+        });
+    }
+    document.getElementById("screen").style.display = 'none'; 
 }
