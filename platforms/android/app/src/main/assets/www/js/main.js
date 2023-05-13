@@ -70,11 +70,8 @@
 
     function loadInterstitial() {
         if ((/(android|windows phone)/i.test(navigator.userAgent))) {
-            alert('load ad');
-            //AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: true, autoShow: false });
-            document.getElementById("screen").style.display = 'none';     
-
-            alert('loaded ad');
+            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: false });
+            //document.getElementById("screen").style.display = 'none';     
         } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
             AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: false });
             //document.getElementById("screen").style.display = 'none';     
@@ -86,13 +83,9 @@
 
    function checkFirstUse()
     {
-            alert('1');
             initApp();
-            alert('2');
             checkTrackingPermissions();
-            alert('3');
             askRating();
-            alert('4');
             checkLocationPermissions();
             //document.getElementById('screen').style.display = 'none';            
     }
@@ -175,20 +168,38 @@ function showMap()
 {
     if(document.getElementById('frmMap').src == '')
     {
-        document.getElementById('frmMap').src = 'Schedules.html';
-        //document.getElementById('frmMap').src = 'https://jl.oulunliikenne.fi/#/schedules/home';
+        // document.getElementById('frmMap').src = 'Schedules.html';
+        document.getElementById('frmMap').src = 'LiveMap.html';
         document.getElementById('frmMap').setAttribute('allow', 'geolocation *;');
     }
     document.getElementById('divMap').style.display = 'block';
     document.getElementById('divPlanner').style.display = 'none';    
     document.getElementById('divPlanner').style.height = '0vh';
-    document.getElementById('divMap').style.height = '92vh';
+    document.getElementById('divMap').style.height = '94vh';
 }
 
 function showPlanner()
 {
+    showAd();
+    {
+        // document.getElementById('frmMap').src = 'Schedules.html';
+        document.getElementById('frmPlanner').src = 'Planner.html';
+        document.getElementById('frmPlanner').setAttribute('allow', 'geolocation *;');
+    }
     document.getElementById('divMap').style.display = 'none';
     document.getElementById('divPlanner').style.display = 'block';
     document.getElementById('divMap').style.height = '0vh';
-    document.getElementById('divPlanner').style.height = '92vh';
+    document.getElementById('divPlanner').style.height = '94vh';
+}
+
+function showAd()
+{
+    document.getElementById("screen").style.display = 'block';     
+    if ((/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent))) {
+        AdMob.isInterstitialReady(function(isready){
+            if(isready) 
+                AdMob.showInterstitial();
+        });
+    }
+    document.getElementById("screen").style.display = 'none'; 
 }
