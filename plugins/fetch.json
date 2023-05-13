@@ -7,16 +7,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-apprate": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-apprate"
-    },
-    "is_top_level": true,
-    "variables": {
-      "PLAY_CORE_VERSION": "1.+"
-    }
-  },
   "cordova-plugin-geolocation": {
     "source": {
       "type": "registry",
@@ -110,6 +100,16 @@
     "variables": {
       "PLAY_SERVICES_VERSION": "20.5.0",
       "APP_ID_ANDROID": "ca-app-pub-9249695405712287~8295282753"
+    }
+  },
+  "cordova-plugin-apprate": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-apprate"
+    },
+    "is_top_level": true,
+    "variables": {
+      "PLAY_CORE_VERSION": "1.+"
     }
   }
 }

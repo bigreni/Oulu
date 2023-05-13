@@ -92,18 +92,6 @@
         "parents": {
           "/*": [
             {
-              "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"NativeStorage\"><param name=\"android-package\" value=\"NativeStorage\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"AppRate\"><param name=\"android-package\" value=\"org.pushandplay.cordova.apprate.AppRate\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
               "count": 1
             },
@@ -121,6 +109,18 @@
             },
             {
               "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"admob.plus.cordova.AdMob\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"NativeStorage\"><param name=\"android-package\" value=\"NativeStorage\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"AppRate\"><param name=\"android-package\" value=\"org.pushandplay.cordova.apprate.AppRate\" /></feature>",
               "count": 1
             }
           ]
@@ -170,16 +170,6 @@
     "cordova-admobsdk": {
       "PACKAGE_NAME": "com.oulu.withads"
     },
-    "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "com.oulu.withads"
-    },
-    "cordova-plugin-nativestorage": {
-      "PACKAGE_NAME": "com.oulu.withads"
-    },
-    "cordova-plugin-apprate": {
-      "PLAY_CORE_VERSION": "1.+",
-      "PACKAGE_NAME": "com.oulu.withads"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.oulu.withads"
     },
@@ -209,65 +199,20 @@
       "APP_ID_ANDROID": "ca-app-pub-9249695405712287~8295282753",
       "PLAY_SERVICES_VERSION": "20.5.0",
       "PACKAGE_NAME": "com.oulu.withads"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.oulu.withads"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.oulu.withads"
+    },
+    "cordova-plugin-apprate": {
+      "PLAY_CORE_VERSION": "1.+",
+      "PACKAGE_NAME": "com.oulu.withads"
     }
   },
   "dependent_plugins": {},
   "modules": [
-    {
-      "id": "cordova-plugin-dialogs.notification",
-      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
-      "pluginId": "cordova-plugin-dialogs",
-      "merges": [
-        "navigator.notification"
-      ]
-    },
-    {
-      "id": "cordova-plugin-dialogs.notification_android",
-      "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
-      "pluginId": "cordova-plugin-dialogs",
-      "merges": [
-        "navigator.notification"
-      ]
-    },
-    {
-      "id": "cordova-plugin-nativestorage.mainHandle",
-      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
-      "pluginId": "cordova-plugin-nativestorage",
-      "clobbers": [
-        "NativeStorage"
-      ]
-    },
-    {
-      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
-      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
-      "pluginId": "cordova-plugin-nativestorage"
-    },
-    {
-      "id": "cordova-plugin-nativestorage.NativeStorageError",
-      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
-      "pluginId": "cordova-plugin-nativestorage"
-    },
-    {
-      "id": "cordova-plugin-apprate.AppRate",
-      "file": "plugins/cordova-plugin-apprate/www/AppRate.js",
-      "pluginId": "cordova-plugin-apprate",
-      "clobbers": [
-        "AppRate",
-        "window.AppRate"
-      ]
-    },
-    {
-      "id": "cordova-plugin-apprate.locales",
-      "file": "plugins/cordova-plugin-apprate/www/locales.js",
-      "pluginId": "cordova-plugin-apprate",
-      "runs": true
-    },
-    {
-      "id": "cordova-plugin-apprate.storage",
-      "file": "plugins/cordova-plugin-apprate/www/storage.js",
-      "pluginId": "cordova-plugin-apprate",
-      "runs": true
-    },
     {
       "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
@@ -401,13 +346,65 @@
       "clobbers": [
         "admob"
       ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification",
+      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification_android",
+      "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-nativestorage.mainHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+      "pluginId": "cordova-plugin-nativestorage",
+      "clobbers": [
+        "NativeStorage"
+      ]
+    },
+    {
+      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+      "id": "cordova-plugin-nativestorage.NativeStorageError",
+      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+      "id": "cordova-plugin-apprate.AppRate",
+      "file": "plugins/cordova-plugin-apprate/www/AppRate.js",
+      "pluginId": "cordova-plugin-apprate",
+      "clobbers": [
+        "AppRate",
+        "window.AppRate"
+      ]
+    },
+    {
+      "id": "cordova-plugin-apprate.locales",
+      "file": "plugins/cordova-plugin-apprate/www/locales.js",
+      "pluginId": "cordova-plugin-apprate",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-apprate.storage",
+      "file": "plugins/cordova-plugin-apprate/www/storage.js",
+      "pluginId": "cordova-plugin-apprate",
+      "runs": true
     }
   ],
   "plugin_metadata": {
     "cordova-admobsdk": "8.13.0",
-    "cordova-plugin-dialogs": "2.0.2",
-    "cordova-plugin-nativestorage": "2.3.2",
-    "cordova-plugin-apprate": "1.7.2",
     "cordova-plugin-device": "2.1.0",
     "cordova-plugin-geolocation": "4.1.0",
     "cordova-support-android-plugin": "2.0.4",
@@ -415,6 +412,9 @@
     "cordova-plugin-inappbrowser": "5.0.0",
     "cordova-plugin-wkwebview-file-xhr": "3.1.0",
     "cordova.plugins.diagnostic": "7.1.1",
-    "admob-plus-cordova": "1.28.0"
+    "admob-plus-cordova": "1.28.0",
+    "cordova-plugin-dialogs": "2.0.2",
+    "cordova-plugin-nativestorage": "2.3.2",
+    "cordova-plugin-apprate": "1.7.2"
   }
 }

@@ -83,7 +83,7 @@
 
    function checkFirstUse()
     {
-            initApp();
+            initApp1();
             checkTrackingPermissions();
             askRating();
             checkLocationPermissions();
@@ -95,24 +95,24 @@
             document.getElementById('screen').style.display = 'none';            
     }
 
-function askRating()
-{
-    const appRatePlugin = AppRate;
-    appRatePlugin.setPreferences({
-        reviewType: {
-            ios: 'AppStoreReview',
-            android: 'InAppBrowser'
-            },
-  useLanguage:  'fi',
-  usesUntilPrompt: 10,
-  promptAgainForEachNewVersion: true,
-  storeAppURL: {
-                android: 'market://details?id=com.oulu.withads'
-               }
-});
- 
-AppRate.promptForRating(false);
-}
+    function askRating()
+    {
+        const appRatePlugin = AppRate;
+        appRatePlugin.setPreferences({
+            reviewType: {
+                ios: 'AppStoreReview',
+                android: 'InAppBrowser'
+                },
+      useLanguage:  'fi',
+      usesUntilPrompt: 10,
+      promptAgainForEachNewVersion: true,
+      storeAppURL: {
+                    android: 'market://details?id=com.oulu.withads'
+                   }
+    });
+     
+    AppRate.promptForRating(false);
+    }
 
 function checkTrackingPermissions(){
     const idfaPlugin = cordova.plugins.idfa;
@@ -181,7 +181,7 @@ function showMap()
 
 function showPlanner()
 {
-    showAd();
+    showAd1();
     {
         // document.getElementById('frmMap').src = 'Schedules.html';
         document.getElementById('frmPlanner').src = 'Planner.html';
@@ -201,6 +201,53 @@ function showAd()
             if(isready) 
                 AdMob.showInterstitial();
         });
+    }
+    document.getElementById("screen").style.display = 'none'; 
+}
+
+function initApp1()
+{
+    if (/(android)/i.test(navigator.userAgent)){
+    interstitial = new admob.InterstitialAd({
+        //dev
+        //adUnitId: 'ca-app-pub-3940256099942544/1033173712'
+        //prod
+        adUnitId: 'ca-app-pub-9249695405712287/9772015955'
+      });
+    }
+    else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
+        interstitial = new admob.InterstitialAd({
+            //dev
+            //adUnitId: 'ca-app-pub-3940256099942544/4411468910'
+            //prod
+            adUnitId: 'ca-app-pub-9249695405712287/1324624766'
+          });
+    }
+    registerAdEvents1();
+    interstitial.load();
+}
+
+function registerAdEvents1() {
+    // new events, with variable to differentiate: adNetwork, adType, adEvent
+    document.addEventListener('admob.ad.load', function (data) {
+        document.getElementById("screen").style.display = 'none';     
+    });
+    document.addEventListener('admob.ad.loadfail', function (data) {
+        document.getElementById("screen").style.display = 'none';     
+    });
+    document.addEventListener('admob.ad.show', function (data) { 
+        document.getElementById("screen").style.display = 'none';     
+    });
+    document.addEventListener('admob.ad.dismiss', function (data) {
+       document.getElementById("screen").style.display = 'none';     
+    });
+}
+
+function showAd1()
+{
+    document.getElementById("screen").style.display = 'block';     
+    if ((/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent)) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
+        interstitial.show();
     }
     document.getElementById("screen").style.display = 'none'; 
 }
