@@ -97,7 +97,8 @@
 
 function askRating()
 {
-    cordova.plugins.AppRate.setPreferences = {
+    const appRatePlugin = AppRate;
+    appRatePlugin.setPreferences({
         reviewType: {
             ios: 'AppStoreReview',
             android: 'InAppBrowser'
@@ -108,7 +109,7 @@ function askRating()
   storeAppURL: {
                 android: 'market://details?id=com.oulu.withads'
                }
-};
+});
  
 AppRate.promptForRating(false);
 }

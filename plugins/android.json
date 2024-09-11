@@ -7,7 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-admobsdk": {
+    "admob-plus-cordova": {
+      "APP_ID_ANDROID": "ca-app-pub-9249695405712287~8295282753",
+      "PLAY_SERVICES_VERSION": "23.0.0",
+      "PACKAGE_NAME": "com.oulu.withads"
+    },
+    "cordova-plugin-apprate": {
+      "PLAY_REVIEW_VERSION": "2.+",
       "PACKAGE_NAME": "com.oulu.withads"
     },
     "cordova-plugin-device": {
@@ -24,6 +30,9 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.oulu.withads"
     },
+    "cordova-plugin-purchase": {
+      "PACKAGE_NAME": "com.oulu.withads"
+    },
     "cordova-plugin-wkwebview-file-xhr": {
       "PACKAGE_NAME": "com.oulu.withads"
     },
@@ -31,25 +40,16 @@
       "ANDROIDX_VERSION": "1.0.0",
       "ANDROIDX_APPCOMPAT_VERSION": "1.3.1",
       "PACKAGE_NAME": "com.oulu.withads"
-    },
-    "admob-plus-cordova": {
-      "APP_ID_ANDROID": "ca-app-pub-9249695405712287~8295282753",
-      "PLAY_SERVICES_VERSION": "20.5.0",
-      "PACKAGE_NAME": "com.oulu.withads"
-    },
-    "cordova-plugin-apprate": {
-      "PLAY_CORE_VERSION": "1.+",
-      "PACKAGE_NAME": "com.oulu.withads"
     }
   },
   "dependent_plugins": {
-    "cordova-support-android-plugin": {
-      "PACKAGE_NAME": "com.oulu.withads"
-    },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.oulu.withads"
     },
     "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.oulu.withads"
+    },
+    "cordova-support-android-plugin": {
       "PACKAGE_NAME": "com.oulu.withads"
     }
   }
