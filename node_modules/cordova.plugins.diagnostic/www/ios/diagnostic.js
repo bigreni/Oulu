@@ -154,18 +154,36 @@ var Diagnostic = (function(){
     };
 
     /**
-     * Checks if mobile data is enabled on device.
+     * Checks if mobile data is authorized for this app.
+     * Returns true if the per-app Mobile Data setting is set to enabled (regardless of whether the device is currently connected to a cellular network)
      *
      * @param {Function} successCallback -  The callback which will be called when the operation is successful.
      * This callback function is passed a single boolean parameter which is TRUE if mobile data is enabled.
      * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
      *  This callback function is passed a single string parameter containing the error message.
      */
-    Diagnostic.isMobileDataEnabled = function(successCallback, errorCallback) {
+    Diagnostic.isMobileDataAuthorized = function(successCallback, errorCallback) {
         return cordova.exec(Diagnostic._ensureBoolean(successCallback),
             errorCallback,
             'Diagnostic',
-            'isMobileDataEnabled',
+            'isMobileDataAuthorized',
+            []);
+    };
+
+
+    /**
+     * Checks if accessibility mode (VoiceOver) is enabled/running on device.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single boolean parameter which is TRUE if accessibility mode is enabled.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.isAccessibilityModeEnabled = function(successCallback, errorCallback) {
+        return cordova.exec(Diagnostic._ensureBoolean(successCallback),
+            errorCallback,
+            'Diagnostic',
+            'isAccessibilityModeEnabled',
             []);
     };
 
@@ -205,6 +223,22 @@ var Diagnostic = (function(){
             errorCallback,
             'Diagnostic',
             'getBuildOSVersion',
+            []);
+    };
+
+    /**
+     * Checks if the current app build is a debug build.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single boolean parameter which is TRUE if the app is a debug build.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.isDebugBuild = function(successCallback, errorCallback) {
+        return cordova.exec(Diagnostic._ensureBoolean(successCallback),
+            errorCallback,
+            'Diagnostic',
+            'isDebugBuild',
             []);
     };
 
@@ -696,6 +730,21 @@ var Diagnostic = (function(){
     };
 
     /**
+     * Switches to the notification settings page in the Settings app
+     * 
+     * @param {Function} successCallback - The callback which will be called when switch to settings is successful.
+     * @param {Function} errorCallback - The callback which will be called when switch to settings encounters an error.
+     * This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.switchToNotificationSettings = function(successCallback, errorCallback) {
+        if (cordova.plugins.diagnostic.notifications){
+            cordova.plugins.diagnostic.notifications.switchToNotificationSettings.apply(this, arguments);
+        } else {
+            throw "Diagnostic Notification module is not installed";
+        }
+    };
+
+    /**
      * Indicates the current setting of notification types for the app in the Settings app.
      * Note: if "Allow Notifications" switch is OFF, all types will be returned as disabled.
      *
@@ -1092,6 +1141,8 @@ var Diagnostic = (function(){
             throw "Diagnostic Motion module is not installed";
         }
     };
+
+
 
     return Diagnostic;
 })();

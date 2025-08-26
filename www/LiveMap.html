@@ -1,33 +1,1633 @@
-<!DOCTYPE html><!--[if lt IE 7]>      
-    <html class="no-js lt-ie9 lt-ie8 lt-ie7">
-       <![endif]--><!--[if IE 7]>         
-       <html class="no-js lt-ie9 lt-ie8">
-          <![endif]--><!--[if IE 8]>         
-          <html class="no-js lt-ie9">
-             <![endif]--><!--[if gt IE 8]><!-->
-             <html class="no-js">
-                <!--<![endif]-->
-                <head>
-                   <meta charset="utf-8">
-                   <meta http-equiv="Pragma" content="no-cache">
-                   <meta http-equiv="Expires" content="-1">
-                   <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
-                   <title>Oulunliikenne.fi</title>
-                   <meta name="description" content="Bussien aikataulut ja paikkatieto">
-                   <meta name="versionDate" content="Wed Jul 11 2018 11:56:29">
-                   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-                   <link rel="stylesheet" href="https://jl.oulunliikenne.fi/styles/68f2df71.vendor.css">
-                   <link rel="stylesheet" href="https://jl.oulunliikenne.fi/styles/3813017b.main.css">
-                 <body ng-app="jakdojadeWebApp" ng-cloak="" ontouchstart="">
-                   <!--[if lt IE 7]>
-                   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-                   <![endif]--><!-- Add your site or application content here -->
-                   <div class="wrapper" ng-view=""></div>
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lato:300,400,900%7CPT+Sans+Narrow:400,700">
+        <link rel="preload" as="style" crossorigin href="https://oulunliikenne.fi/css/oulu_theme.38fe8043373f900c498c.css">
+        <link rel="preload" as="script" crossorigin href="https://oulunliikenne.fi/js/aa6abcabb4bd4868ce2c.js">
+        <link rel="preload" as="script" crossorigin href="https://oulunliikenne.fi/js/a6686fed7bcb43a90a9c.js">
+        <link rel="preload" as="script" crossorigin href="js/fd62456e290a0fbf7323.js">
+        <link rel="preconnect" crossorigin href="https://api.digitransit.fi?digitransit-subscription-key=7041534d1b6d4745a653128477cb89ef">
+        <link rel="preconnect" crossorigin href="https://cdn.digitransit.fi?digitransit-subscription-key=7041534d1b6d4745a653128477cb89ef">
+        <link rel="preconnect" crossorigin href="undefined">
+        <link rel="stylesheet" type="text/css" crossorigin href="https://oulunliikenne.fi/css/oulu_theme.38fe8043373f900c498c.css"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,900%7CPT+Sans+Narrow:400,700"/>
+        <script>
+            /* Polyfill service v4.8.0
+ * Disable minification (remove `.min` from URL path) for more info */
 
-                   <!-- <script src="https://jl.oulunliikenne.fi/bower_components/es5-shim/es5-shim.js"></script> -->
-                   <!-- <script src="https://jl.oulunliikenne.fi/bower_components/json3/lib/json3.min.js"></script> -->
-                   <!-- <script src="js/f3161b42.vendor.js"></script>
-                   <script src="js/0c81c751.scripts.js"></script> -->
-                   <script src="js/8558a85b.vendor.js"></script>
-                   <script src="js/0fa90b53.scripts.js"></script>       
-            
+            (function(self, undefined) {
+                if (!("console"in self && "exception"in self.console)) {
+                    console.exception = function n() {}
+                    ;
+                }
+                if (!("console"in self && "timeline"in self.console)) {
+                    console.timeline = function n() {}
+                    ;
+                }
+                if (!("console"in self && "timelineEnd"in self.console)) {
+                    console.timelineEnd = function n() {}
+                    ;
+                }
+            }
+            )('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+        </script>
+        <title data-react-helmet="true">Oulun liikenteen reittiopas</title>
+        <meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta data-react-helmet="true" http-equiv="Content-Language" content="fi"/>
+        <meta data-react-helmet="true" name="charset" content="utf-8"/>
+        <meta data-react-helmet="true" name="description" content="Uusi Reittiopas"/>
+        <meta data-react-helmet="true" name="keywords" content="digitransit"/>
+        <meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 user-scalable=no, minimal-ui"/>
+        <meta data-react-helmet="true" name="referrer" content="origin"/>
+        <meta data-react-helmet="true" property="og:url" content="https://oulunliikenne.fi/"/>
+        <meta data-react-helmet="true" property="og:type" content="website"/>
+        <meta data-react-helmet="true" property="og:title" content="Oulun liikenteen reittiopas"/>
+        <meta data-react-helmet="true" property="og:site_name" content="Oulun liikenteen reittiopas"/>
+        <meta data-react-helmet="true" property="og:description" content="Oulun seudun uusi reittiopas"/>
+        <meta data-react-helmet="true" property="og:image" content="https://oulunliikenne.fi/img/default-social-share.png"/>
+        <meta data-react-helmet="true" property="og:image:width" content="2400"/>
+        <meta data-react-helmet="true" property="og:image:height" content="1260"/>
+        <meta data-react-helmet="true" property="og:locale" content="en_US"/>
+        <meta data-react-helmet="true" property="twitter:card" content="summary_large_image"/>
+        <meta data-react-helmet="true" property="twitter:site" content="@oulunkaupunki"/>
+        <meta data-react-helmet="true" property="twitter:creator" content="@oulunkaupunki"/>
+        <meta data-react-helmet="true" property="twitter:title" content="Oulun liikenteen reittiopas"/>
+        <meta data-react-helmet="true" property="twitter:description" content="Oulun seudun uusi reittiopas"/>
+        <meta data-react-helmet="true" property="twitter:image" content="https://oulunliikenne.fi/img/default-social-share.png"/>
+        <meta data-react-helmet="true" name="mobile-web-app-capable" content="yes"/>
+        <meta data-react-helmet="true" name="theme-color" content="#fff"/>
+        <meta data-react-helmet="true" name="application-name" content="Oulun liikenteen reittiopas"/>
+        <meta data-react-helmet="true" name="apple-mobile-web-app-capable" content="yes"/>
+        <meta data-react-helmet="true" name="apple-mobile-web-app-status-bar-style" content="white"/>
+        <meta data-react-helmet="true" name="apple-mobile-web-app-title" content="Oulun liikenteen reittiopas"/>
+        <link data-react-helmet="true" rel="manifest" href="https://oulunliikenne.fi/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/manifest.json"/>
+        <link data-react-helmet="true" rel="yandex-tableaou-widget" href="https://oulunliikenne.fi/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/yandex-browser-manifest.json"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="57x57" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-57x57.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="60x60" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-60x60.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="72x72" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-72x72.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="76x76" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-76x76.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="114x114" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-114x114.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="120x120" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-120x120.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="144x144" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-144x144.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="152x152" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-152x152.png"/>
+        <link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-icon-180x180.png"/>
+        <link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/favicon-32x32.png"/>
+        <link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/favicon-16x16.png"/>
+        <link data-react-helmet="true" rel="shortcut icon" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/favicon.ico"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-320x460.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-640x920.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-640x1096.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-750x1294.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-1182x2208.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-1242x2148.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-748x1024.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-768x1004.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-1496x2048.png"/>
+        <link data-react-helmet="true" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/icons-oulu-99bb340f8183cd1a2214fb6925c57b9f/apple-touch-startup-image-1536x2008.png"/>
+    </head>
+    <body>
+        <script>
+            fetch('https://oulunliikenne.fi/f35df2d87080b0bfb2048aa8202584a7.svg').then(function(response) {
+                return response.text();
+            }).then(function(blob) {
+                var div = document.createElement('div');
+                div.innerHTML = blob;
+                document.body.insertBefore(div, document.body.childNodes[0]);
+            });
+        </script>
+        <div id="app" data-initial-breakpoint="large">
+            <div>
+                <header class="top-bar bp-large flex-horizontal">
+                    <nav class="top-bar flex-grow flex-horizontal">
+                        <button class="noborder" aria-label="Frontpage" title="Frontpage">
+                            <h1 class="no-margin">
+                                <div class="navi-logo" style="background-image:none"></div>
+                            </h1>
+                        </button>
+                        <div class="navi-modes padding-left-large"></div>
+                        <div class="navi-buttons-more"></div>
+                        <div class="empty-space flex-grow"></div>
+                        <div class="navi-buttons right-border navi-margin"></div>
+                        <div class="navi-languages right-border navi-margin"></div>
+                        <div class="navi-icons navi-margin">
+                            <a class="noborder" aria-label="Disruptions">
+                                <span aria-hidden="true" class="icon-container">
+                                    <svg style="pointer-events:auto" viewBox="0 0 40 40" class="icon">
+                                        <use xlink:href="#icon-icon_caution"></use>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="navi-buttons navi-margin">
+                            <button class="navi-button" aria-label="Links">
+                                <span>Links</span>
+                            </button>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+            <section id="mainContent" class="content">
+                <noscript>This page requires JavaScript to run.</noscript>
+                <div class="front-page flex-vertical false fullscreen bp-large">
+                    <!-- <div class="search-container hidden">
+                        <div class="autosuggest-panel">
+                            <div class="dark-overlay hidden"></div>
+                            <div class="origin-input-container">
+                                <div class="autosuggest-input-container origin">
+                                    <div class="autosuggest-input-icon origin">
+                                        <span aria-hidden="true" class="icon-container">
+                                            <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon">
+                                                <use xlink:href="#icon-icon_mapMarker-point"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-origin" aria-expanded="false" class="react-autosuggest__container">
+                                        <div id="origin-container" style="display:flex">
+                                            <input type="text" id="origin" value="" autoComplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-origin" class="react-autosuggest__input " placeholder="Search origin, route or stop" aria-label="Search origin, route or stop"/>
+                                            <button class="noborder clear-input" title="Search" aria-label="Search">
+                                                <span aria-hidden="true" class="icon-container">
+                                                    <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon">
+                                                        <use xlink:href="#icon-icon_search"></use>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="react-autowhatever-origin" role="listbox" class="react-autosuggest__suggestions-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="viapoints-container"></div>
+                        </div>
+                    </div> -->
+                    <!-- <button class="search-toggle" aria-label="Search" title="Search">
+                        <span aria-hidden="true" class="icon-container">
+                            <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon">
+                                <use xlink:href="#icon-icon_search"></use>
+                            </svg>
+                        </span>
+                    </button> -->
+                    <div class="fpccontainer hidden">
+                        <div class="fpcfloat no-select">
+                            <ul class="tabs-row bp-large cursor-pointer">
+                                <li class="bp-large h5 nearby-routes selected" role="button">
+                                    <span aria-hidden="true" class="icon-container">
+                                        <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon prefix-icon nearby-icon">
+                                            <use xlink:href="#icon-icon_nearby"></use>
+                                        </svg>
+                                    </span>
+                                    <span>Near you</span>
+                                </li>
+                                <div></div>
+                            </ul>
+                            <div class="frontpage-panel">
+                                <div id="nolocation-panel" class="flex-vertical">
+                                    <p>
+                                        <span>Specify origin</span>
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <button class="noborder" style="display:block">
+                                                <span aria-hidden="true" class="icon-container">
+                                                    <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon splash-icon icon-icon_position">
+                                                        <use xlink:href="#icon-icon_position"></use>
+                                                    </svg>
+                                                </span>
+                                                Use current location
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="favourites-toggle" aria-label="Favorites" title="Favorites">
+                        <span aria-hidden="true" class="icon-container">
+                            <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon">
+                                <use xlink:href="#icon-icon_star"></use>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="map flex-grow">
+                        <div class="background-gradient"></div>
+                    </div>
+                    <div class="map-legend-container"></div>
+                    <footer id="page-footer-container">
+                        <nav id="page-footer" aria-label="Footer links">
+                            <span class="footer-item">
+                                <span class="footer-text">
+                                    <span>© Bigreni 2025</span>
+                                </span>
+                            </span>
+                            <span class="footer-separator"></span>
+                            <span class="footer-item">
+                                <span class="cursor-pointer">
+                                    <!-- <a href="mailto:palaute.oulunliikenne@ouka.fi?subject=Oulunliikenne palaute">
+                                        <span id="footer-feedback">
+                                            <span aria-hidden="true" class="icon-container">
+                                                <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon footer-icon">
+                                                    <use xlink:href="#icon-icon_speech-bubble"></use>
+                                                </svg>
+                                            </span>
+                                            <span>Submit feedback</span>
+                                        </span>
+                                    </a> -->
+                                </span>
+                            </span>
+                            <span class="footer-item">
+                                <button class="noborder button cursor-pointer">
+                                    <!-- <span id="about-this-service">
+                                        <span aria-hidden="true" class="icon-container">
+                                            <svg style="pointer-events:none" viewBox="0 0 40 40" class="icon footer-icon">
+                                                <use xlink:href="#icon-icon_info"></use>
+                                            </svg>
+                                        </span>
+                                        <span>About the service</span>
+                                    </span> -->
+                                </button>
+                            </span>
+                            <span class="footer-item">
+                                <button class="noborder button cursor-pointer">
+                                    <span id="accessibility-report">
+                                        <span>Accessibility report</span>
+                                    </span>
+                                </button>
+                            </span>
+                        </nav>
+                    </footer>
+                </div>
+            </section>
+            <div class="Toastify"></div>
+            <div class="modal-overlay cursor-pointer EcoCounterModal" style="z-index:1400">
+                <div data-closable="true" class="modal small-11 column">
+                    <div class="row">
+                        <h3 class="left">Compare</h3>
+                        <div class="small-1 columns right text-right modal-top-nav">
+                            <a class="close-button cursor-pointer">
+                                <span aria-hidden="true" class="icon-container">
+                                    <svg style="pointer-events:auto" viewBox="0 0 40 40" class="icon">
+                                        <use xlink:href="#icon-icon_close"></use>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-wrapper">
+                        <div class="modal-content momentum-scroll"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.state = {
+                "context": {
+                    "dispatcher": {
+                        "stores": {}
+                    },
+                    "options": {
+                        "optimizePromiseCallback": false
+                    },
+                    "plugins": {
+                        "extra-context-plugin": {
+                            "headers": {
+                                "x-real-ip": "10.1.2.135",
+                                "x-forwarded-for": "71.212.12.128, 10.1.2.135",
+                                "x-forwarded-host": "oulunliikenne.fi",
+                                "host": "localhost:8080",
+                                "connection": "close",
+                                "x-forwarded-proto": "https",
+                                "x-forwarded-port": "443",
+                                "x-amzn-trace-id": "Root=1-688f1aa4-09da4438427483af514f9178",
+                                "pragma": "no-cache",
+                                "cache-control": "no-cache",
+                                "sec-ch-ua": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
+                                "sec-ch-ua-mobile": "?0",
+                                "sec-ch-ua-platform": "\"Windows\"",
+                                "upgrade-insecure-requests": "1",
+                                "user-agent": "Mozilla\u002F5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\u002F537.36 (KHTML, like Gecko) Chrome\u002F138.0.0.0 Safari\u002F537.36",
+                                "accept": "text\u002Fhtml,application\u002Fxhtml+xml,application\u002Fxml;q=0.9,image\u002Favif,image\u002Fwebp,image\u002Fapng,*\u002F*;q=0.8,application\u002Fsigned-exchange;v=b3;q=0.7",
+                                "sec-fetch-site": "same-origin",
+                                "sec-fetch-mode": "navigate",
+                                "sec-fetch-user": "?1",
+                                "sec-fetch-dest": "document",
+                                "accept-encoding": "gzip, deflate, br, zstd",
+                                "accept-language": "en-US,en;q=0.9",
+                                "priority": "u=0, i",
+                                "cookie": "lang=en"
+                            },
+                            "config": {
+                                "PIWIK_ADDRESS": "oulunliikenne.matomo.cloud",
+                                "PIWIK_ID": "1",
+                                "SENTRY_DSN": "",
+                                "PORT": "8080",
+                                "CONFIG": "oulu",
+                                "OTPTimeout": 10000,
+                                "URL": {
+                                    "API_URL": "https:\u002F\u002Fapi.digitransit.fi",
+                                    "ASSET_URL": "",
+                                    "MAP_URL": "https:\u002F\u002Fcdn.digitransit.fi",
+                                    "OTP": "https:\u002F\u002Fapi.oulunliikenne.fi\u002Fproxy",
+                                    "MAP": {
+                                        "default": "https:\u002F\u002Fcdn.digitransit.fi\u002Fmap\u002Fv3\u002Fhsl-map\u002F",
+                                        "sv": "https:\u002F\u002Fcdn.digitransit.fi\u002Fmap\u002Fv3\u002Fhsl-map-sv\u002F"
+                                    },
+                                    "STOP_MAP": "https:\u002F\u002Fcdn.digitransit.fi\u002Fmap\u002Fv3\u002Fwaltti\u002Ffi\u002Fstops,stations\u002F",
+                                    "CITYBIKE_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fbicyclestations\u002F",
+                                    "MQTT": "angqxp7s7wkrp-ats.iot.eu-central-1.amazonaws.com",
+                                    "ALERTS": "https:\u002F\u002Fapi.digitransit.fi\u002Frealtime\u002Fservice-alerts\u002Fv1",
+                                    "FONT": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Lato:300,400,900%7CPT+Sans+Narrow:400,700",
+                                    "REALTIME": "https:\u002F\u002Fapi.digitransit.fi\u002Frealtime\u002Fvehicle-positions\u002Fv1",
+                                    "PELIAS": "https:\u002F\u002Fapi.digitransit.fi\u002Fgeocoding\u002Fv1\u002Fsearch",
+                                    "PELIAS_REVERSE_GEOCODER": "https:\u002F\u002Fapi.digitransit.fi\u002Fgeocoding\u002Fv1\u002Freverse",
+                                    "PARKING_STATIONS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fcarparks\u002F",
+                                    "CAMERASTATIONS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fcameras\u002F",
+                                    "ROADWORKS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Froadworks\u002F",
+                                    "DISORDERS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fdisruptions\u002F",
+                                    "WEATHER_STATIONS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fweatherstations\u002F",
+                                    "CITY_WEATHER_STATIONS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fcityweatherstations\u002F",
+                                    "TMS_STATIONS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Ftmsstations\u002F",
+                                    "ROAD_CONDITIONS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Froadconditions\u002F",
+                                    "FLUENCY_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Ffluency\u002F",
+                                    "ECO_COUNTERS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fecocounters\u002F",
+                                    "MAINTENANCE_VEHICLE_NON_MOTORISED_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fmaintenanceroutesnonmotorised\u002F",
+                                    "MAINTENANCE_VEHICLE_MOTORISED_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fmaintenanceroutesmotorised\u002F",
+                                    "ROAD_SIGNS_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Froadsigns\u002F",
+                                    "BICYCLE_ROUTES_MAIN_REGIONAL_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fbicycleroutesmainregional\u002F",
+                                    "BICYCLE_ROUTE_TYPES_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fbicycleroutetypes\u002F",
+                                    "BICYCLE_ROUTES_BAANA_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fbicycleroutesbaana\u002F",
+                                    "BICYCLE_ROUTES_BRAND_MAP": "https:\u002F\u002Fddvcuabgt1afd.cloudfront.net\u002Fmap\u002Fbicycleroutesbrand\u002F",
+                                    "ANALYTICS": "https:\u002F\u002Fkapydata.oulunseudunpyoraily.fi\u002F"
+                                },
+                                "APP_PATH": "",
+                                "title": "Oulun liikenteen reittiopas",
+                                "textLogo": false,
+                                "logo": "oulu\u002Foulu-logo.png",
+                                "contactName": {
+                                    "sv": "",
+                                    "fi": "",
+                                    "default": ""
+                                },
+                                "name": "Digitransit beta",
+                                "shortName": "Digitransit",
+                                "searchParams": {
+                                    "boundary.rect.min_lat": 64.71,
+                                    "boundary.rect.max_lat": 65.38,
+                                    "boundary.rect.min_lon": 24.37,
+                                    "boundary.rect.max_lon": 26.61
+                                },
+                                "feedIds": ["OULU"],
+                                "searchSources": ["oa", "osm", "nlsfi"],
+                                "search": {
+                                    "suggestions": {
+                                        "useTransportIcons": false
+                                    },
+                                    "usePeliasStops": false,
+                                    "mapPeliasModality": false,
+                                    "peliasMapping": {},
+                                    "peliasLayer": null,
+                                    "peliasLocalization": null,
+                                    "minimalRegexp": new RegExp(".+","")
+                                },
+                                "nearbyRoutes": {
+                                    "radius": 10000,
+                                    "bucketSize": 1000
+                                },
+                                "defaultSettings": {
+                                    "accessibilityOption": 0,
+                                    "bikeSpeed": 5,
+                                    "minTransferTime": 120,
+                                    "optimize": "QUICK",
+                                    "preferredRoutes": [],
+                                    "ticketTypes": null,
+                                    "transferPenalty": 0,
+                                    "unpreferredRoutes": [],
+                                    "walkBoardCost": 900,
+                                    "walkReluctance": 2,
+                                    "walkSpeed": 1.2
+                                },
+                                "defaultOptions": {
+                                    "walkBoardCost": {
+                                        "least": 3600,
+                                        "less": 1200,
+                                        "more": 360,
+                                        "most": 120
+                                    },
+                                    "walkReluctance": {
+                                        "least": 5,
+                                        "less": 3,
+                                        "more": 1,
+                                        "most": 0.2
+                                    }
+                                },
+                                "quickOptions": {
+                                    "public_transport": {
+                                        "availableOptionSets": ["least-transfers", "least-walking", "public-transport-with-bicycle", "saved-settings"]
+                                    },
+                                    "walk": {
+                                        "availableOptionSets": ["prefer-walking-routes", "saved-settings"]
+                                    },
+                                    "bicycle": {
+                                        "availableOptionSets": ["least-elevation-changes", "prefer-greenways", "saved-settings"]
+                                    },
+                                    "car_park": {
+                                        "availableOptionSets": ["least-transfers", "least-walking", "saved-settings"]
+                                    }
+                                },
+                                "maxWalkDistance": 10000,
+                                "maxBikingDistance": 100000,
+                                "itineraryFiltering": 1.5,
+                                "availableLanguages": ["fi", "sv", "en"],
+                                "defaultLanguage": "fi",
+                                "timezoneData": "Europe\u002FHelsinki|EET EEST|-20 -30|0101010101010101010101010101010101010|22k10 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|12e5",
+                                "mainMenu": {
+                                    "show": true,
+                                    "showDisruptions": true,
+                                    "showLoginCreateAccount": true,
+                                    "showOffCanvasList": true
+                                },
+                                "itinerary": {
+                                    "delayThreshold": 180,
+                                    "waitThreshold": 180,
+                                    "enableFeedback": false,
+                                    "timeNavigation": {
+                                        "enableButtonArrows": false
+                                    }
+                                },
+                                "nearestStopDistance": {
+                                    "maxShownDistance": 5000
+                                },
+                                "map": {
+                                    "mobileDefaultExpanded": true,
+                                    "useRetinaTiles": true,
+                                    "tileSize": 512,
+                                    "zoomOffset": -1,
+                                    "minZoom": 1,
+                                    "maxZoom": 18,
+                                    "controls": {
+                                        "zoom": {
+                                            "position": "bottomleft"
+                                        },
+                                        "scale": {
+                                            "position": "bottomright"
+                                        }
+                                    },
+                                    "genericMarker": {
+                                        "nameMarkerMinZoom": 18,
+                                        "popup": {
+                                            "offset": [106, 16],
+                                            "maxWidth": 250,
+                                            "minWidth": 250
+                                        }
+                                    },
+                                    "line": {
+                                        "halo": {
+                                            "weight": 7,
+                                            "thinWeight": 4
+                                        },
+                                        "leg": {
+                                            "weight": 5,
+                                            "thinWeight": 2
+                                        },
+                                        "passiveColor": "#758993"
+                                    },
+                                    "useModeIconsInNonTileLayer": false
+                                },
+                                "stopCard": {
+                                    "header": {
+                                        "showDescription": true,
+                                        "showStopCode": true,
+                                        "showDistance": true
+                                    }
+                                },
+                                "autoSuggest": {
+                                    "locationAware": true
+                                },
+                                "useAltRealtimeClient": true,
+                                "routePrefix": "OULU",
+                                "parkAndRide": {
+                                    "showParkAndRide": false,
+                                    "parkAndRideMinZoom": 14
+                                },
+                                "ticketSales": {
+                                    "showTicketSales": false,
+                                    "ticketSalesMinZoom": 16
+                                },
+                                "parkingStations": {
+                                    "showParkingStations": true,
+                                    "parkingStationsMinZoom": 11,
+                                    "smallIconMinZoom": 13,
+                                    "availabilityThreshold": 0.25
+                                },
+                                "cameraStations": {
+                                    "showCameraStations": true,
+                                    "cameraStationsMinZoom": 11
+                                },
+                                "roadworks": {
+                                    "showRoadworks": true,
+                                    "roadworksMinZoom": 11,
+                                    "showIcons": true,
+                                    "showLines": false
+                                },
+                                "disorders": {
+                                    "showDisorders": true,
+                                    "disordersMinZoom": 11,
+                                    "showIcons": true,
+                                    "showLines": false,
+                                    "showPolygons": false,
+                                    "showPolygonCenterIcon": true,
+                                    "showLineIcons": true,
+                                    "showUpcoming": false,
+                                    "showUpcomingDetour": false,
+                                    "colors": {
+                                        "LOW": "#FFC107",
+                                        "MEDIUM": "#FFC107",
+                                        "HIGH": "#FFC107",
+                                        "DETOUR": "#00CC66",
+                                        "GEOM_OVERRIDE": "#333",
+                                        "UPCOMING": "#999"
+                                    }
+                                },
+                                "roadConditions": {
+                                    "showRoadConditions": true,
+                                    "roadConditionsMinZoom": 7,
+                                    "showIcons": false,
+                                    "showLines": true,
+                                    "colors": {
+                                        "NORMAL_CONDITION": "#28A745",
+                                        "POOR_CONDITION": "#FFC107",
+                                        "EXTREMELY_POOR_CONDITION": "#DC3545",
+                                        "DEFAULT": "#999999"
+                                    }
+                                },
+                                "fluencies": {
+                                    "showFluencies": true,
+                                    "fluenciesMinZoom": 7,
+                                    "showIcons": false,
+                                    "showLines": true,
+                                    "lineWidth": 5,
+                                    "lineWidthHighlighted": 10,
+                                    "showEmpty": true,
+                                    "colors": {
+                                        "TRAFFIC_FLOW_NORMAL": "#28A745",
+                                        "TRAFFIC_HEAVIER_THAN_NORMAL": "#FFC107",
+                                        "TRAFFIC_MUCH_HEAVIER_THAN_NORMAL": "#DC3545",
+                                        "TRAFFIC_FLOW_UNKNOWN": "#999999"
+                                    }
+                                },
+                                "cityWeatherStations": {
+                                    "showCityWeatherStations": true,
+                                    "cityWeatherStationsMinZoom": 11
+                                },
+                                "weatherStations": {
+                                    "showWeatherStations": true,
+                                    "weatherStationsMinZoom": 11
+                                },
+                                "tmsStations": {
+                                    "showTmsStations": true,
+                                    "tmsStationsMinZoom": 11
+                                },
+                                "maintenanceVehicles": {
+                                    "showMaintenanceVehicles": true,
+                                    "showLines": true,
+                                    "maintenanceVehiclesMinZoom": 7,
+                                    "timeRanges": {
+                                        "60": "maintenance-vehicle-time-range-1h",
+                                        "180": "maintenance-vehicle-time-range-3h",
+                                        "360": "maintenance-vehicle-time-range-6h",
+                                        "720": "maintenance-vehicle-time-range-12h",
+                                        "1440": "maintenance-vehicle-time-range-1d",
+                                        "4320": "maintenance-vehicle-time-range-3d",
+                                        "43200": "maintenance-vehicle-time-range-30d"
+                                    }
+                                },
+                                "realtimeMaintenanceVehicles": {
+                                    "showRealtimeMaintenanceVehicles": true
+                                },
+                                "cityBike": {
+                                    "showCityBikes": false,
+                                    "showStationId": true,
+                                    "useUrl": {
+                                        "fi": "https:\u002F\u002Fkaupunkipyorat.ouka.fi",
+                                        "sv": "https:\u002F\u002Fkaupunkipyorat.ouka.fi\u002Fhome",
+                                        "en": "https:\u002F\u002Fkaupunkipyorat.ouka.fi\u002Fhome"
+                                    },
+                                    "cityBikeMinZoom": 11,
+                                    "cityBikeSmallIconZoom": 14,
+                                    "fewAvailableCount": 3
+                                },
+                                "stopsMinZoom": 11,
+                                "stopsSmallMaxZoom": 14,
+                                "terminalStopsMaxZoom": 17,
+                                "terminalStopsMinZoom": 12,
+                                "terminalNamesZoom": 16,
+                                "stopsIconSize": {
+                                    "small": 8,
+                                    "selected": 28,
+                                    "default": 18
+                                },
+                                "stopsShowRealtimeTracking": true,
+                                "stopsShowRealtimeTrackingDefault": true,
+                                "stopsRealtimeTrackingLimit": 30,
+                                "appBarLink": false,
+                                "colors": {
+                                    "primary": "#e10069"
+                                },
+                                "sprites": "svg-sprite.oulu.svg",
+                                "disruption": {
+                                    "showInfoButton": true
+                                },
+                                "agency": {
+                                    "show": false
+                                },
+                                "socialMedia": {
+                                    "title": "Oulun liikenteen reittiopas",
+                                    "description": "Oulun seudun uusi reittiopas",
+                                    "locale": "en_US",
+                                    "image": {
+                                        "url": "\u002Fimg\u002Fdefault-social-share.png",
+                                        "width": 2400,
+                                        "height": 1260
+                                    },
+                                    "twitter": {
+                                        "card": "summary_large_image",
+                                        "site": "@oulunkaupunki"
+                                    }
+                                },
+                                "meta": {
+                                    "description": "Uusi Reittiopas",
+                                    "keywords": "digitransit"
+                                },
+                                "showTicketInformation": false,
+                                "showRouteInformation": false,
+                                "modeToOTP": {
+                                    "bus": "BUS",
+                                    "tram": "TRAM",
+                                    "rail": "RAIL",
+                                    "subway": "SUBWAY",
+                                    "citybike": "BICYCLE_RENT",
+                                    "airplane": "AIRPLANE",
+                                    "ferry": "FERRY",
+                                    "walk": "WALK",
+                                    "bicycle": "BICYCLE",
+                                    "car": "CAR",
+                                    "car_park": "CAR_PARK",
+                                    "public_transport": "WALK"
+                                },
+                                "transportModes": {
+                                    "bus": {
+                                        "availableForSelection": true,
+                                        "defaultValue": true
+                                    },
+                                    "tram": {
+                                        "availableForSelection": false,
+                                        "defaultValue": false
+                                    },
+                                    "rail": {
+                                        "availableForSelection": true,
+                                        "defaultValue": true
+                                    },
+                                    "subway": {
+                                        "availableForSelection": false,
+                                        "defaultValue": false
+                                    },
+                                    "airplane": {
+                                        "availableForSelection": false,
+                                        "defaultValue": false
+                                    },
+                                    "ferry": {
+                                        "availableForSelection": false,
+                                        "defaultValue": false
+                                    },
+                                    "citybike": {
+                                        "availableForSelection": false,
+                                        "defaultValue": false
+                                    }
+                                },
+                                "streetModes": {
+                                    "public_transport": {
+                                        "availableForSelection": true,
+                                        "defaultValue": true,
+                                        "exclusive": false,
+                                        "icon": "bus-withoutBox"
+                                    },
+                                    "walk": {
+                                        "availableForSelection": true,
+                                        "defaultValue": false,
+                                        "exclusive": true,
+                                        "icon": "walk"
+                                    },
+                                    "bicycle": {
+                                        "availableForSelection": true,
+                                        "defaultValue": false,
+                                        "exclusive": true,
+                                        "icon": "bicycle-withoutBox"
+                                    },
+                                    "car": {
+                                        "availableForSelection": true,
+                                        "defaultValue": false,
+                                        "exclusive": true,
+                                        "icon": "car-withoutBox"
+                                    },
+                                    "car_park": {
+                                        "availableForSelection": false,
+                                        "defaultValue": false,
+                                        "exclusive": false,
+                                        "icon": "car_park-withoutBox"
+                                    }
+                                },
+                                "accessibilityOptions": [{
+                                    "messageId": "accessibility-nolimit",
+                                    "displayName": "Ei rajoitusta",
+                                    "value": "0"
+                                }, {
+                                    "messageId": "accessibility-limited",
+                                    "displayName": "Liikun pyörätuolilla",
+                                    "value": "1"
+                                }],
+                                "moment": {
+                                    "relativeTimeThreshold": {
+                                        "seconds": 55,
+                                        "minutes": 59,
+                                        "hours": 23,
+                                        "days": 26,
+                                        "months": 11
+                                    }
+                                },
+                                "customizeSearch": {
+                                    "walkReluctance": {
+                                        "available": true
+                                    },
+                                    "walkBoardCost": {
+                                        "available": true
+                                    },
+                                    "transferMargin": {
+                                        "available": true
+                                    },
+                                    "walkingSpeed": {
+                                        "available": true
+                                    },
+                                    "ticketOptions": {
+                                        "available": true
+                                    },
+                                    "accessibility": {
+                                        "available": true
+                                    },
+                                    "transferpenalty": {
+                                        "available": true
+                                    }
+                                },
+                                "areaPolygon": [[24.37, 64.71], [24.37, 65.38], [26.61, 65.38], [26.61, 64.71]],
+                                "modePolygons": {},
+                                "footer": {
+                                    "content": [{
+                                        "label": "© Bigreni 2025"
+                                    }, {}, {
+                                        "name": "footer-feedback",
+                                        "nameEn": "",
+                                        "href": "",
+                                        "icon": ""
+                                    }, {
+                                        "name": "about-this-service",
+                                        "nameEn": "",
+                                        "route": "",
+                                        "icon": "icon-icon_info"
+                                    }, {
+                                        "name": "accessibility-report",
+                                        "route": "",
+                                        "languages": ["fi"]
+                                    }]
+                                },
+                                "defaultEndpoint": {
+                                    "address": "Keskusta",
+                                    "lat": 65.0118,
+                                    "lon": 25.4702
+                                },
+                                "defaultOrigins": [{
+                                    "icon": "icon-icon_bus",
+                                    "label": "Rotuaari, Oulu",
+                                    "lat": 65.012338,
+                                    "lon": 25.471333
+                                }, {
+                                    "icon": "icon-icon_rail",
+                                    "label": "Rautatieasema, Oulu",
+                                    "lat": 65.01014,
+                                    "lon": 25.483349
+                                }, {
+                                    "icon": "icon-icon_airplane",
+                                    "label": "Lentoasema, Oulu",
+                                    "lat": 64.928808,
+                                    "lon": 25.373296
+                                }],
+                                "aboutThisService": {
+                                    "fi": [{
+                                        "header": "Tietoja palvelusta",
+                                        "paragraphs": ["Oulunliikenne.fi-palvelu sisältää joukkoliikenteen, kävelyn, pyöräilyn ja autoilun reittioppaat, joukkoliikenteen reaaliaikaisen pysäkki-informaation sekä tietoja liikenneolosuhteista ja liikenteen sujuvuudesta. Palvelun tilaajina ovat Oulun kaupunki ja Pohjois-Pohjanmaan ELY-keskus. Palveluntuottajana toimii Weasel Software Oy. Palvelu perustuu Digitransit-palvelualustaan. Katso palvelun englanninkielinen tekninen kuvaus {link}."],
+                                        "link": {
+                                            "href": "https:\u002F\u002Fwp.oulunliikenne.fi\u002Fwp-content\u002Fuploads\u002F2022\u002F02\u002FOulunliikenne.fi_service_documentation.pdf",
+                                            "text": "tästä"
+                                        }
+                                    }, {
+                                        "header": "Digitransit palvelualusta",
+                                        "paragraphs": ["Digitransit-palvelualusta on HSL:n ja Traficomin kehittämä avoimen lähdekoodin reititystuote."]
+                                    }, {
+                                        "header": "Tietolähteet",
+                                        "paragraphs": ["Kartat, tiedot kaduista, rakennuksista, pysäkkien sijainneista ynnä muusta tarjoaa © OpenStreetMap contributors. Jos teet muutoksia OSM-karttapohjaan, ilmoita asiasta Oulunliikenne.fi:n ”Anna palautetta” -toiminnolla, jotta muutokset saadaan näkyviin myös Oulunliikenne.fi –palveluun.", "Osoitetiedot tuodaan Väestörekisterikeskuksen rakennustietorekisteristä.", "Joukkoliikenteen reitit ja aikataulut ladataan Oulun joukkoliikenteen tietokannasta. Joukkoliikenteen aikatauluja ja reittejä koskevaa palautetta voit antaa: https:\u002F\u002Fwww.oulunjoukkoliikenne.fi\u002Fasiakaspalvelu", "Useiden sivustolla esitettyjen liikennetietojen lähteenä on Traffic Management Finland \u002F digitraffic.fi, lisenssi CC 4.0 BY."]
+                                    }],
+                                    "sv": [{
+                                        "header": "Om tjänsten",
+                                        "paragraphs": ["Den här tjänsten omfattar reseplaneraren för kollektivtrafik, promenad, cykling och privat bilanvändning i Uleåborgsregionen. Tjänsten inkluderar passagerarinformation i realtid och information om vägförhållanden och rusningar. Tjänsten erbjuds av Uleåborgs stad och NTM-centralen i Norra Österbotten. Serviceproducenten är Weasel Software Oy. Tjänsten baserar sig på Digitransit-plattformen."]
+                                    }, {
+                                        "header": "Digitransit-plattformen",
+                                        "paragraphs": ["Digitransit-plattformen är en öppen programvara utvecklad av Helsingforsregionens trafik (HRT) och Trafikverket."]
+                                    }, {
+                                        "header": "Datakällor",
+                                        "paragraphs": ["Kartor och informationen om gator, byggnader, hållplatser och så vidare erbjuds av © OpenStreetMap contributors. Addressinformation hämtas från BRC:s byggnadsinformationsregister. Kollektivtrafikens rutter och tidtabeller hämtas från Uleåborgs stads kollektivtrafiksdatabas.", "Källan till många trafikinformation som publiceras i tjänsten är Traffic Management Finland \u002F digitraffic.fi, lisence CC 4.0 BY."]
+                                    }],
+                                    "en": [{
+                                        "header": "About this service",
+                                        "paragraphs": ["The service covers route planners for public transport, walking, cycling and private car use in Oulu region. The service includes real-time passenger information and information of road conditions and traffic congestions. This service is provided by City of Oulu and ELY Center of North Ostrobothnia. The service producer is Weasel Software Ltd. The service is built on Digitransit platform."]
+                                    }, {
+                                        "header": "Digitransit platform",
+                                        "paragraphs": ["The Digitransit platform is an open source routing platform developed by Helsinki Region Transport (HSL) and Finnish Transport Agency."]
+                                    }, {
+                                        "header": "Data sources",
+                                        "paragraphs": ["The maps and the information of streets, buildings, bus stops etc. are provided by © OpenStreetMap contributors. Address data is retrieved from the Building and Dwelling Register of the Finnish Population Register Center. Public transport routes and timetables are downloaded from the database of Oulu Public Transport Authority.", "The source of many traffic information published in the service is Traffic Management Finland \u002F digitraffic.fi, lisence CC 4.0 BY."]
+                                    }],
+                                    "nb": {},
+                                    "fr": {},
+                                    "de": {}
+                                },
+                                "staticMessages": [],
+                                "themeMap": {
+                                    "hsl": "reittiopas",
+                                    "turku": "(turku|foli)",
+                                    "lappeenranta": "lappeenranta",
+                                    "joensuu": "joensuu",
+                                    "oulu": "oulu",
+                                    "hameenlinna": "hameenlinna",
+                                    "matka": "matka",
+                                    "rovaniemi": "rovaniemi",
+                                    "kouvola": "kouvola",
+                                    "tampere": "tampere",
+                                    "mikkeli": "mikkeli",
+                                    "kotka": "kotka",
+                                    "jyvaskyla": "jyvaskyla",
+                                    "lahti": "lahti",
+                                    "kuopio": "kuopio"
+                                },
+                                "piwikMap": [{
+                                    "id": "10",
+                                    "expr": "dev-joensuu"
+                                }, {
+                                    "id": "11",
+                                    "expr": "joensuu"
+                                }, {
+                                    "id": "12",
+                                    "expr": "dev-turku"
+                                }, {
+                                    "id": "27",
+                                    "expr": "(turku|foli)"
+                                }, {
+                                    "id": "14",
+                                    "expr": "hameenlinna"
+                                }, {
+                                    "id": "15",
+                                    "expr": "jyvaskyla"
+                                }, {
+                                    "id": "16",
+                                    "expr": "kuopio"
+                                }, {
+                                    "id": "17",
+                                    "expr": "lahti"
+                                }, {
+                                    "id": "18",
+                                    "expr": "lappeenranta"
+                                }, {
+                                    "id": "21",
+                                    "expr": "oulu"
+                                }, {
+                                    "id": "29",
+                                    "expr": "kotka"
+                                }, {
+                                    "id": "31",
+                                    "expr": "mikkeli"
+                                }, {
+                                    "id": "35",
+                                    "expr": "tampere"
+                                }, {
+                                    "id": "43",
+                                    "expr": "kouvola"
+                                }, {
+                                    "id": "49",
+                                    "expr": "rovaniemi"
+                                }, {
+                                    "id": "5",
+                                    "expr": "dev.reittiopas"
+                                }, {
+                                    "id": "4",
+                                    "expr": "reittiopas"
+                                }, {
+                                    "id": "7",
+                                    "expr": "dev.matka"
+                                }, {
+                                    "id": "6",
+                                    "expr": "matka"
+                                }, {
+                                    "id": "7",
+                                    "expr": "dev.digitransit"
+                                }, {
+                                    "id": "6",
+                                    "expr": "digitransit"
+                                }],
+                                "minutesToDepartureLimit": 9,
+                                "imperialEnabled": false,
+                                "mapLayers": {
+                                    "featureMapping": {
+                                        "ticketSales": {}
+                                    }
+                                },
+                                "tosterMessage": {
+                                    "autoClose": 5000
+                                },
+                                "YEAR": 2025,
+                                "redirectReittiopasParams": true,
+                                "queryMaxAgeDays": 14,
+                                "nationalServiceLink": {
+                                    "name": "matka.fi",
+                                    "href": "https:\u002F\u002Fopas.matka.fi\u002F"
+                                },
+                                "AWS": {
+                                    "region": "eu-central-1",
+                                    "iot": {
+                                        "identityPoolId": "eu-central-1:8f58773b-4d45-46bc-9534-5a9a0d19c76d"
+                                    }
+                                },
+                                "SUBSCRIPTION_KEY": "7041534d1b6d4745a653128477cb89ef",
+                                "trafficAnnouncements": {
+                                    "showIcons": true,
+                                    "showLines": true,
+                                    "showPolygons": true,
+                                    "showPolygonCenterIcon": true,
+                                    "showLineIcons": true,
+                                    "showDetours": false,
+                                    "showUpcoming": true,
+                                    "showUpcomingDetour": false,
+                                    "colors": {
+                                        "LOW": "#FFC107",
+                                        "MEDIUM": "#FFC107",
+                                        "HIGH": "#FFC107",
+                                        "CATEGORY": {
+                                            "RES": "#FFC107",
+                                            "ACT": "#FFC107",
+                                            "MHZ": "#FFC107",
+                                            "ACC": "#DC3545",
+                                            "DEFAULT": "#0073BF"
+                                        },
+                                        "DETOUR": "#00CC66",
+                                        "GEOM_OVERRIDE": "#333",
+                                        "UPCOMING": "#999"
+                                    }
+                                },
+                                "ecoCounters": {
+                                    "showEcoCounters": true,
+                                    "ecoCounterMinZoom": 11
+                                },
+                                "roadInspectionVehicles": {
+                                    "showLines": true,
+                                    "showRoadInspectionVehicles": true,
+                                    "roadInspectionVehiclesMinZoom": 7
+                                },
+                                "roadSigns": {
+                                    "showRoadSigns": true,
+                                    "roadSignsMinZoom": 11
+                                },
+                                "bicycleRoutes": {
+                                    "showLines": true,
+                                    "showBicycleRoutes": true,
+                                    "bicycleRoutesMinZoom": 11
+                                },
+                                "homeUrl": "\u002F",
+                                "defaultMapZoom": 13,
+                                "defaultMapCenter": {
+                                    "lat": 65.01236,
+                                    "lon": 25.46816
+                                },
+                                "appBarExternalModes": true,
+                                "appBarLinks": true,
+                                "appBarDisruptionInfo": true,
+                                "availableModes": ["transport", "walk", "bicycle", "car"],
+                                "defaultMode": "transport",
+                                "toggleableSearch": true,
+                                "toggleableFavourites": true,
+                                "mapTrackingButtons": {
+                                    "altPosition": true,
+                                    "altPositionMobile": false,
+                                    "layers": {
+                                        "containerClassName": "bubble-dialog-component-container-alt",
+                                        "streetModeHeader": true,
+                                        "headerId": "settings",
+                                        "icon": "settings",
+                                        "buttonText": "settings"
+                                    }
+                                },
+                                "accessibilityReport": {
+                                    "fi": [{
+                                        "header": "Saavutettavuusseloste",
+                                        "paragraphs": ["Tämä seloste koskee Oulun Liikenteen digitaalisia palveluita sivulla www.oulunliikenne.fi", "Tämä seloste on laadittu 27.1.2022 ja päivitetty 9.9.2022\nPalvelun saavutettavuuden on arvioinut ulkopuolinen asiantuntijaorganisaatio, jonka avustuksella palvelua kehitetään jatkuvasti saavutettavammaksi.", "{bold} Oulunliikenne.fi -sivuston saavutettavuuden tila:", "Oulunliikenne.fi-palvelu täyttää saavutettavuusvaatimukset osittain. Palvelun saavutettavuuspuutteiden korjauksia toteutetaan tulevaisuudessa.", "{bold} Alla mainittu sisältö ei ole WCAG-kriteerien mukaan saavutettava:"]
+                                    }, {
+                                        "header2": "1. Havaittavuus",
+                                        "paragraphs": ["Puutteen kuvaus \n(WCAG-saavutettavuuskriteerit, jotka eivät täyty):"],
+                                        "list": ["Visuaaliset taulukot (esim. Aikataulut) eivät ole ohjelmallisesti taulukkoja.", "Osa listoista ei ole ohjelmallisesti listoja, esimerkiksi Asetuksissa olevat listat.", "Reittiehdotukset-näkymässä Asetukset-valikko on vain visuaalisesti piilotettu, vaikka on ohjelmallisesti saatavilla.\n(WCAG 1.3.2)"]
+                                    }, {
+                                        "paragraphs": ["{bold} VÄRIT JA KONTRASTIT"],
+                                        "list": ["Joissain sisällöissä väriä käytetään ainoana visuaalisena keinona informaation välittämisessä.", "Sivustolla on kahta eri väriä olevia Häiriö-ikoneita, käyttäjä ei saa lisätietoa miten eriväriset häiriöikonit eroavat toisistaan.", "Kunnossapito, Kelintarkistus, Pyörätiet: Oikean alakulman eri kategoriat ilmoitetaan vain väreillä, kartassa ilmaistaan eri kategoriat vain väreillä.", "Ruuhkat, Ajokeli: Eroista viestitään pelkillä väreillä. Eroista viestitään pelkillä väreillä myös kartalla.", "Ajokeli-, Kunnossapito- ja Kelintarkistus-laatikot: Tietoa ilmaistaan vain eri värisillä ympyröillä.\n(WCAG 1.4.1)", "Tekstin ja taustavärin kontrasti ei ole kaikissa tapauksissa riittävän suuri.", "Puutteita kontrasteissa: \nReittiehdotukset-sivulla Asetukset.\nLinja-sivulla ei-aktiiviset välilehdet.\nMuut kulkumuodot-valikon linkit.\n(WCAG 1.4.3)", "Ei tekstimuotoisen sisällön kontrastit.\n(WCAG 1.4.11)"]
+                                    }, {
+                                        "header2": "2. Hallittavuus",
+                                        "paragraphs": ["Puutteen kuvaus \n(WCAG-saavutettavuuskriteerit, jotka eivät täyty):"],
+                                        "list": ["Joihinkin toimintoihin ei pääse ruudunlukijalla tai näppäimistöllä navigoimalla.", "Linkit-ikkunaa ei saa suljettua pelkällä näppäimistöllä.", "Kartalla olevia tietoja ei voi hallita pelkällä näppäimistöllä.", "Häiriöt -painikkeeseen ei pääse näppäimistöllä.\n(WCAG 2.1.1., 2.1.2)", "Pysäkkien ”reaaliaika”-ajat on merkitty ikonilla, joka vilkkuu, eikä vilkkuvaa sisältöä voi tauottaa, pysäyttää tai piilottaa. (HUOM. Chrome ja Firefox, ei Safari) \n(WCAG 2.2.2)", "Sivustolla ei ole mekanismia ohittaa toistuvia lohkoja. \n(WCAG 2.4.1)", "Sivuston sivuilla on osittain puutteelliset sivuotsikot. \n(WCAG 2.4.2)", "Osoitinlaitteella tehtyä valintaa ei voi kaikkialla peruuttaa. \n(WCAG 2.5.2)", "Joillakin elementeillä visuaalinen nimi ei vastaa ohjelmallista nimeä. \n(WCAG 2.5.3)"]
+                                    }, {
+                                        "header2": "3. Ymmärrettävyys",
+                                        "paragraphs": ["Puutteen kuvaus \n(WCAG-saavutettavuuskriteerit, jotka eivät täyty):"],
+                                        "list": ["Käyttäjälle ei ilmoiteta virheellisestä syötteestä. Hakukentissä virheellisestä syötteestä ei ilmoiteta, vaan annetaan lähin mahdollinen tulos. \n(WCAG 3.3.1, 3.3.3)"]
+                                    }, {
+                                        "header2": "4. Toimintavarmuus",
+                                        "paragraphs": ["Puutteen kuvaus \n(WCAG-saavutettavuuskriteerit, jotka eivät täyty):"],
+                                        "list": ["Sivuston koodi ei ole täysin standardinmukaista. \n(WCAG 4.1.1)", "Ruudunlukijakäyttäjälle ei viestitä suosikin lisäämisen tai poistamisen onnistumisesta tai epäonnistumisesta. \n(WCAG 4.1.3)"]
+                                    }, {
+                                        "header2": "Palaute ja yhteystiedot",
+                                        "paragraphs": ["", "Tarjoamme puhelimitse tukea asiakaspalvelussamme käyttäjille, joille digipalvelut eivät ole saavutettavissa. Oulun joukkoliikenteen asiakaspalvelu on avoinna ma–pe klo 9–15.30. Puhelinnumeromme on 08 5584 0400.", "Huomasitko saavutettavuuspuutteen Oulunliikenne.fi -palvelussa? Kerro se meille ja teemme parhaamme puutteen korjaamiseksi. Otamme mielellämme vastaan huomioita ja parannusehdotuksia.", "Voit lähettää saavutettavuuspalautetta sähköpostitse osoitteeseen: \n{link}"],
+                                        "link": {
+                                            "href": "mailto:palaute.oulunliikenne@ouka.fi",
+                                            "text": "palaute.oulunliikenne@ouka.fi"
+                                        }
+                                    }, {
+                                        "paragraphs": ["Joukkoliikenteen toimintaa koskevat palautteet pyydämme lähettämään nettilomakkeen avulla osoitteessa {link}", "{bold} Saavutettavuuskantelun ja -selvityspyynnön tekeminen", "Jos et ole tyytyväinen saamaasi vastaukseen tai et saa vastausta lainkaan kahden viikon aikana, voit tehdä ilmoituksen Etelä-Suomen aluehallintovirastoon. Etelä-Suomen aluehallintovirasto valvoo saavutettavuusvaatimusten noudattamista Suomessa. ", "{bold} Valvontaviranomaisen yhteystiedot", "Etelä-Suomen aluehallintovirasto\nSaavutettavuuden valvonnan yksikkö\nwww.saavutettavuusvaatimukset.fi\nsaavutettavuus(at)avi.fi\npuhelinnumero vaihde 0295 016 000"],
+                                        "link": {
+                                            "href": "https:\u002F\u002Fwww.oulunjoukkoliikenne.fi\u002Fasiakaspalvelu",
+                                            "text": "https:\u002F\u002Fwww.oulunjoukkoliikenne.fi\u002Fasiakaspalvelu"
+                                        }
+                                    }]
+                                },
+                                "showIntroPopup": false,
+                                "introPopup": {
+                                    "fi": {
+                                        "header": "Oulunliikenne.fi uudistuu",
+                                        "paragraphs": ["Oulunliikenne.fi:n uusi versio otetaan käyttöön 2.6.2019. Tämä on uuden palvelun koekäyttöversio, joka toimii siihen saakka rinnan nykyisen palvelun kanssa.", "Voit antaa uuteen palveluun liittyvää palautetta ja kehittämisvinkkejä sivun alareunan ”Anna palautetta” –toiminolla.", "Koekäytön aikana palvelu ei vielä kata aivan kaikkia nykyisiä tietolajeja. Mm. kävelijöiden ja pyöräilijöiden laskentatiedot sekä reaaliaikaiset kunnossapitotilannetiedot puuttuvat.", "Uusi Oulunliikenne.fi perustuu HSL:n ja Traficomin kehittämään avoimen lähdekoodin Digitransit-palvelualustaan. Monet käyttöliittymän ominaisuuksista tulevat suoraan Reittiopas.fi:n ominaisuuksista."]
+                                    }
+                                },
+                                "useModeSpecificMapLayers": true,
+                                "mapLayerDefaultsModeSpecific": {
+                                    "PUBLIC_TRANSPORT": {
+                                        "stop": {
+                                            "bus": true
+                                        },
+                                        "cameraStations": false,
+                                        "cityWeatherStations": false,
+                                        "weatherStations": true,
+                                        "disorders": true
+                                    },
+                                    "CAR": {
+                                        "parkingStations": false,
+                                        "disorders": true,
+                                        "roadworks": true,
+                                        "cameraStations": true,
+                                        "cityWeatherStations": false,
+                                        "weatherStations": true,
+                                        "tmsStations": false,
+                                        "roadConditions": false,
+                                        "fluencies": true,
+                                        "maintenanceVehicles": false,
+                                        "realtimeMaintenanceVehicles": false,
+                                        "roadInspectionVehicles": false,
+                                        "roadSigns": true
+                                    },
+                                    "BICYCLE": {
+                                        "disorders": true,
+                                        "cityWeatherStations": true,
+                                        "weatherStations": false,
+                                        "cameraStations": false,
+                                        "ecoCounters": true,
+                                        "maintenanceVehicles": true,
+                                        "realtimeMaintenanceVehicles": true,
+                                        "roadInspectionVehicles": false,
+                                        "bicycleRoutes": true,
+                                        "bicycleRoutesMainContract": false,
+                                        "bicycleRoutesMainRegional": true,
+                                        "bicycleRouteTypes": true,
+                                        "bicycleRoutesBaana": true,
+                                        "bicycleRoutesBrand": true
+                                    },
+                                    "WALK": {
+                                        "disorders": true,
+                                        "cityWeatherStations": true,
+                                        "weatherStations": false,
+                                        "cameraStations": false,
+                                        "ecoCounters": true,
+                                        "maintenanceVehicles": true,
+                                        "realtimeMaintenanceVehicles": true,
+                                        "roadInspectionVehicles": false
+                                    }
+                                },
+                                "metaData": {
+                                    "meta": [{
+                                        "name": "mobile-web-app-capable",
+                                        "content": "yes"
+                                    }, {
+                                        "name": "theme-color",
+                                        "content": "#fff"
+                                    }, {
+                                        "name": "application-name",
+                                        "content": "Oulun liikenteen reittiopas"
+                                    }, {
+                                        "name": "apple-mobile-web-app-capable",
+                                        "content": "yes"
+                                    }, {
+                                        "name": "apple-mobile-web-app-status-bar-style",
+                                        "content": "white"
+                                    }, {
+                                        "name": "apple-mobile-web-app-title",
+                                        "content": "Oulun liikenteen reittiopas"
+                                    }],
+                                    "link": [{
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "57x57",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-57x57.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "60x60",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-60x60.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "72x72",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-72x72.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "76x76",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-76x76.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "114x114",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-114x114.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "120x120",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-120x120.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "144x144",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-144x144.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "152x152",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-152x152.png"
+                                    }, {
+                                        "rel": "apple-touch-icon",
+                                        "sizes": "180x180",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-icon-180x180.png"
+                                    }, {
+                                        "rel": "icon",
+                                        "type": "image\u002Fpng",
+                                        "sizes": "32x32",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Ffavicon-32x32.png"
+                                    }, {
+                                        "rel": "icon",
+                                        "type": "image\u002Fpng",
+                                        "sizes": "16x16",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Ffavicon-16x16.png"
+                                    }, {
+                                        "rel": "shortcut icon",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Ffavicon.ico"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-320x460.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-640x920.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-640x1096.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-750x1294.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-1182x2208.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-1242x2148.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-748x1024.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-768x1004.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-1496x2048.png"
+                                    }, {
+                                        "rel": "apple-touch-startup-image",
+                                        "media": "(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)",
+                                        "href": "\u002Ficons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002Fapple-touch-startup-image-1536x2008.png"
+                                    }]
+                                },
+                                "iconPath": "icons-oulu-99bb340f8183cd1a2214fb6925c57b9f\u002F"
+                            }
+                        }
+                    }
+                },
+                "plugins": {
+                    "extra-context-plugin": {}
+                }
+            };
+        </script>
+        <script type="application/json" id="relayData">
+            [
+            ]</script>
+        <script>
+            !function(e) {
+                function a(a) {
+                    for (var i, d, r = a[0], m = a[1], f = a[2], o = 0, s = []; o < r.length; o++)
+                        d = r[o],
+                        Object.prototype.hasOwnProperty.call(t, d) && t[d] && s.push(t[d][0]),
+                        t[d] = 0;
+                    for (i in m)
+                        Object.prototype.hasOwnProperty.call(m, i) && (e[i] = m[i]);
+                    for (b && b(a); s.length; )
+                        s.shift()();
+                    return c.push.apply(c, f || []),
+                    n()
+                }
+                function n() {
+                    for (var e, a = 0; a < c.length; a++) {
+                        for (var n = c[a], i = !0, d = 1; d < n.length; d++) {
+                            var m = n[d];
+                            0 !== t[m] && (i = !1)
+                        }
+                        i && (c.splice(a--, 1),
+                        e = r(r.s = n[0]))
+                    }
+                    return e
+                }
+                var i = {}
+                  , d = {
+                    "runtime~main": 0
+                }
+                  , t = {
+                    "runtime~main": 0
+                }
+                  , c = [];
+                function r(a) {
+                    if (i[a])
+                        return i[a].exports;
+                    var n = i[a] = {
+                        i: a,
+                        l: !1,
+                        exports: {}
+                    };
+                    return e[a].call(n.exports, n, n.exports, r),
+                    n.l = !0,
+                    n.exports
+                }
+                r.e = function(e) {
+                    var a = [];
+                    d[e] ? a.push(d[e]) : 0 !== d[e] && {
+                        2: 1,
+                        "vendors~map": 1,
+                        map: 1
+                    }[e] && a.push(d[e] = new Promise((function(a, n) {
+                        for (var i = "www/css/" + ({
+                            admin: "admin",
+                            about: "about",
+                            "accessibility-report": "accessibility-report",
+                            "add-favourite": "add-favourite",
+                            "itinerary~map~route~styleguide": "itinerary~map~route~styleguide",
+                            "itinerary~styleguide": "itinerary~styleguide",
+                            "map~styleguide": "map~styleguide",
+                            "stop~styleguide": "stop~styleguide",
+                            styleguide: "styleguide",
+                            route: "route",
+                            main0: "main0",
+                            main1: "main1",
+                            main10: "main10",
+                            main11: "main11",
+                            main12: "main12",
+                            main13: "main13",
+                            main14: "main14",
+                            main15: "main15",
+                            main16: "main16",
+                            main17: "main17",
+                            main18: "main18",
+                            main19: "main19",
+                            main2: "main2",
+                            main20: "main20",
+                            main21: "main21",
+                            main22: "main22",
+                            main23: "main23",
+                            main24: "main24",
+                            main25: "main25",
+                            main26: "main26",
+                            main27: "main27",
+                            main28: "main28",
+                            main29: "main29",
+                            main3: "main3",
+                            main5: "main5",
+                            main6: "main6",
+                            main7: "main7",
+                            main8: "main8",
+                            main9: "main9",
+                            stop: "stop",
+                            "vendors~intl": "vendors~intl",
+                            intl: "intl",
+                            "vendors~itinerary": "vendors~itinerary",
+                            itinerary: "itinerary",
+                            "vendors~map": "vendors~map",
+                            map: "map",
+                            "vendors~mqtt": "vendors~mqtt",
+                            mqtt: "mqtt"
+                        }[e] || e) + "." + {
+                            0: "31d6cfe0d16ae931b73c",
+                            1: "31d6cfe0d16ae931b73c",
+                            2: "97102c14fbb9e7db3179",
+                            3: "31d6cfe0d16ae931b73c",
+                            4: "31d6cfe0d16ae931b73c",
+                            5: "31d6cfe0d16ae931b73c",
+                            admin: "31d6cfe0d16ae931b73c",
+                            about: "31d6cfe0d16ae931b73c",
+                            "accessibility-report": "31d6cfe0d16ae931b73c",
+                            "add-favourite": "31d6cfe0d16ae931b73c",
+                            "itinerary~map~route~styleguide": "31d6cfe0d16ae931b73c",
+                            "itinerary~styleguide": "31d6cfe0d16ae931b73c",
+                            "map~styleguide": "31d6cfe0d16ae931b73c",
+                            "stop~styleguide": "31d6cfe0d16ae931b73c",
+                            styleguide: "31d6cfe0d16ae931b73c",
+                            route: "31d6cfe0d16ae931b73c",
+                            main0: "31d6cfe0d16ae931b73c",
+                            main1: "31d6cfe0d16ae931b73c",
+                            main10: "31d6cfe0d16ae931b73c",
+                            main11: "31d6cfe0d16ae931b73c",
+                            main12: "31d6cfe0d16ae931b73c",
+                            main13: "31d6cfe0d16ae931b73c",
+                            main14: "31d6cfe0d16ae931b73c",
+                            main15: "31d6cfe0d16ae931b73c",
+                            main16: "31d6cfe0d16ae931b73c",
+                            main17: "31d6cfe0d16ae931b73c",
+                            main18: "31d6cfe0d16ae931b73c",
+                            main19: "31d6cfe0d16ae931b73c",
+                            main2: "31d6cfe0d16ae931b73c",
+                            main20: "31d6cfe0d16ae931b73c",
+                            main21: "31d6cfe0d16ae931b73c",
+                            main22: "31d6cfe0d16ae931b73c",
+                            main23: "31d6cfe0d16ae931b73c",
+                            main24: "31d6cfe0d16ae931b73c",
+                            main25: "31d6cfe0d16ae931b73c",
+                            main26: "31d6cfe0d16ae931b73c",
+                            main27: "31d6cfe0d16ae931b73c",
+                            main28: "31d6cfe0d16ae931b73c",
+                            main29: "31d6cfe0d16ae931b73c",
+                            main3: "31d6cfe0d16ae931b73c",
+                            main5: "31d6cfe0d16ae931b73c",
+                            main6: "31d6cfe0d16ae931b73c",
+                            main7: "31d6cfe0d16ae931b73c",
+                            main8: "31d6cfe0d16ae931b73c",
+                            main9: "31d6cfe0d16ae931b73c",
+                            stop: "31d6cfe0d16ae931b73c",
+                            "vendors~intl": "31d6cfe0d16ae931b73c",
+                            intl: "31d6cfe0d16ae931b73c",
+                            "vendors~itinerary": "31d6cfe0d16ae931b73c",
+                            itinerary: "31d6cfe0d16ae931b73c",
+                            "vendors~map": "97102c14fbb9e7db3179",
+                            map: "50bae6eb0c5c5e205d63",
+                            "vendors~mqtt": "31d6cfe0d16ae931b73c",
+                            mqtt: "31d6cfe0d16ae931b73c"
+                        }[e] + ".css", t = r.p + i, c = document.getElementsByTagName("link"), m = 0; m < c.length; m++) {
+                            var f = (b = c[m]).getAttribute("data-href") || b.getAttribute("href");
+                            if ("stylesheet" === b.rel && (f === i || f === t))
+                                return a()
+                        }
+                        var o = document.getElementsByTagName("style");
+                        for (m = 0; m < o.length; m++) {
+                            var b;
+                            if ((f = (b = o[m]).getAttribute("data-href")) === i || f === t)
+                                return a()
+                        }
+                        var s = document.createElement("link");
+                        s.rel = "stylesheet",
+                        s.type = "text/css";
+                        s.onerror = s.onload = function(i) {
+                            if (s.onerror = s.onload = null,
+                            "load" === i.type)
+                                a();
+                            else {
+                                var c = i && ("load" === i.type ? "missing" : i.type)
+                                  , r = i && i.target && i.target.href || t
+                                  , m = new Error("Loading CSS chunk " + e + " failed.\n(" + r + ")");
+                                m.code = "CSS_CHUNK_LOAD_FAILED",
+                                m.type = c,
+                                m.request = r,
+                                delete d[e],
+                                s.parentNode.removeChild(s),
+                                n(m)
+                            }
+                        }
+                        ,
+                        s.href = t,
+                        0 !== s.href.indexOf(window.location.origin + "/") && (s.crossOrigin = "anonymous"),
+                        document.head.appendChild(s)
+                    }
+                    )).then((function() {
+                        d[e] = 0
+                    }
+                    )));
+                    var n = t[e];
+                    if (0 !== n)
+                        if (n)
+                            a.push(n[2]);
+                        else {
+                            var i = new Promise((function(a, i) {
+                                n = t[e] = [a, i]
+                            }
+                            ));
+                            a.push(n[2] = i);
+                            var c, m = document.createElement("script");
+                            m.charset = "utf-8",
+                            m.timeout = 120,
+                            r.nc && m.setAttribute("nonce", r.nc),
+                            m.src = function(e) {
+                                return r.p + "www/js/" + {
+                                    0: "d3eb779cd4ffe04416f8",
+                                    1: "fc815e68549d5a7cf5b6",
+                                    2: "9655eac544c407ee14f1",
+                                    3: "6d68f23d3e3d9ef3a8d3",
+                                    4: "9a7ac70c7d685b6666b8",
+                                    5: "6ef88cad92ccd5859d94",
+                                    admin: "f74a0d231745f8ded727",
+                                    about: "4ddd7bedaa98e8d60b29",
+                                    "accessibility-report": "385b71c2e3b99dce2acd",
+                                    "add-favourite": "b3f33cf80c53b13a687d",
+                                    "itinerary~map~route~styleguide": "f4ce3145a03afe64eea8",
+                                    "itinerary~styleguide": "b3f383546ea6755b7b80",
+                                    "map~styleguide": "a4901ced9c97ba630a6c",
+                                    "stop~styleguide": "45a19e7d02a1b9213159",
+                                    styleguide: "af9f73bc3cbbeaa7f7d3",
+                                    route: "e580889888b2b6b10a4a",
+                                    main0: "29f403adffa25d70ab7b",
+                                    main1: "b2dae6517598437ea142",
+                                    main10: "450192f710bed224c0b4",
+                                    main11: "0af8993972f5274bb773",
+                                    main12: "09215b19e304233815a7",
+                                    main13: "23460a7ea665ea92b701",
+                                    main14: "2662bd2d1253b5d8b584",
+                                    main15: "d3b7c3285914375d66fd",
+                                    main16: "78fda42af4ef2a287844",
+                                    main17: "01005fbbc7e554f0ccc6",
+                                    main18: "af479a22449d46846a0d",
+                                    main19: "12f45042415db714cf68",
+                                    main2: "0b78d00547701aa658e1",
+                                    main20: "f0ec67b2fa4b4662c4ea",
+                                    main21: "7edda5150eb96a24519c",
+                                    main22: "2ac37c1fc99217095ea5",
+                                    main23: "e6b0e22322cbb0e052fd",
+                                    main24: "2e42e3f5402e051c708b",
+                                    main25: "f34cc4284db706b12394",
+                                    main26: "c8bcbb39254b5010357f",
+                                    main27: "52415f6ef61c98f892e8",
+                                    main28: "31c126ac52f46a8e90f9",
+                                    main29: "e5d0c69b2b9a2b00bdcf",
+                                    main3: "eaca10eb134acc84f174",
+                                    main5: "0bce75c4cd6e97449e29",
+                                    main6: "8ebbee9c1943cbd2fc78",
+                                    main7: "3ab8d0b2f4ab9e4d0970",
+                                    main8: "19b12ee8357935a2ff7e",
+                                    main9: "2e01740d4e0260a43afe",
+                                    stop: "099de787a41bd25b3db5",
+                                    "vendors~intl": "e55c6ec8e3f7bef6b27e",
+                                    intl: "9a2992da49fad2255d70",
+                                    "vendors~itinerary": "b9eaf3e24b66651ba76c",
+                                    itinerary: "702e88efd422e5d61892",
+                                    "vendors~map": "2e574691c9a37e5056c6",
+                                    map: "970ae4cc0c03ad9312b3",
+                                    "vendors~mqtt": "7fe0a65dc772532a719a",
+                                    mqtt: "65d103aa3d64de136121"
+                                }[e] + ".js"
+                            }(e),
+                            0 !== m.src.indexOf("https://oulunliikenne.fi/") && (m.crossOrigin = "anonymous");
+                            var f = new Error;
+                            c = function(a) {
+                                m.onerror = m.onload = null,
+                                clearTimeout(o);
+                                var n = t[e];
+                                if (0 !== n) {
+                                    if (n) {
+                                        var i = a && ("load" === a.type ? "missing" : a.type)
+                                          , d = a && a.target && a.target.src;
+                                        f.message = "Loading chunk " + e + " failed.\n(" + i + ": " + d + ")",
+                                        f.name = "ChunkLoadError",
+                                        f.type = i,
+                                        f.request = d,
+                                        n[1](f)
+                                    }
+                                    t[e] = void 0
+                                }
+                            }
+                            ;
+                            var o = setTimeout((function() {
+                                c({
+                                    type: "timeout",
+                                    target: m
+                                })
+                            }
+                            ), 12e4);
+                            m.onerror = m.onload = c,
+                            document.head.appendChild(m)
+                        }
+                    return Promise.all(a)
+                }
+                ,
+                r.m = e,
+                r.c = i,
+                r.d = function(e, a, n) {
+                    r.o(e, a) || Object.defineProperty(e, a, {
+                        enumerable: !0,
+                        get: n
+                    })
+                }
+                ,
+                r.r = function(e) {
+                    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+                        value: "Module"
+                    }),
+                    Object.defineProperty(e, "__esModule", {
+                        value: !0
+                    })
+                }
+                ,
+                r.t = function(e, a) {
+                    if (1 & a && (e = r(e)),
+                    8 & a)
+                        return e;
+                    if (4 & a && "object" == typeof e && e && e.__esModule)
+                        return e;
+                    var n = Object.create(null);
+                    if (r.r(n),
+                    Object.defineProperty(n, "default", {
+                        enumerable: !0,
+                        value: e
+                    }),
+                    2 & a && "string" != typeof e)
+                        for (var i in e)
+                            r.d(n, i, function(a) {
+                                return e[a]
+                            }
+                            .bind(null, i));
+                    return n
+                }
+                ,
+                r.n = function(e) {
+                    var a = e && e.__esModule ? function() {
+                        return e.default
+                    }
+                    : function() {
+                        return e
+                    }
+                    ;
+                    return r.d(a, "a", a),
+                    a
+                }
+                ,
+                r.o = function(e, a) {
+                    return Object.prototype.hasOwnProperty.call(e, a)
+                }
+                ,
+                r.p = "/",
+                r.oe = function(e) {
+                    throw console.error(e),
+                    e
+                }
+                ;
+                var m = window.webpackJsonp = window.webpackJsonp || []
+                  , f = m.push.bind(m);
+                m.push = a,
+                m = m.slice();
+                for (var o = 0; o < m.length; o++)
+                    a(m[o]);
+                var b = f;
+                n()
+            }([]);
+            //# sourceMappingURL=/js/runtime~main.a0bb9beb013c1e32d9c3.js.map
+        </script>
+        <script>
+            window.ASSET_URL = "/"
+        </script>
+        <script src="https://oulunliikenne.fi/js/aa6abcabb4bd4868ce2c.js" crossorigin defer></script>
+        <script src="https://oulunliikenne.fi/js/a6686fed7bcb43a90a9c.js" crossorigin defer></script>
+        <script src="js/fd62456e290a0fbf7323.js" crossorigin defer></script>
+    </body>
+</html>

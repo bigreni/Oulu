@@ -43,8 +43,12 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
     - [getCurrentBatteryLevel()](#getcurrentbatterylevel)
     - [isAirplaneModeEnabled()](#isairplanemodeenabled)
     - [isMobileDataEnabled()](#ismobiledataenabled)
+    - [isMobileDataAuthorized()](#ismobiledataauthorized)
+    - [isAccessibilityModeEnabled()](#isaccessibilitymodeenabled)
+    - [isTouchExplorationEnabled()](#istouchexplorationenabled)
     - [getDeviceOSVersion()](#getdeviceosversion)
     - [getBuildOSVersion()](#getbuildosversion)
+    - [isDebugBuild()](#isdebugbuild)
   - [Location module](#location-module)
     - [locationMode constants](#locationmode-constants)
     - [locationAuthorizationMode constants](#locationauthorizationmode-constants)
@@ -89,6 +93,7 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
     - [isCameraAvailable()](#iscameraavailable)
     - [isCameraAuthorized()](#iscameraauthorized)
     - [getCameraAuthorizationStatus()](#getcameraauthorizationstatus)
+    - [getCameraAuthorizationStatuses()](#getcameraauthorizationstatuses)
     - [requestCameraAuthorization()](#requestcameraauthorization)
     - [isCameraRollAuthorized()](#iscamerarollauthorized)
     - [getCameraRollAuthorizationStatus()](#getcamerarollauthorizationstatus)
@@ -234,6 +239,11 @@ For example, to explicitly include all optional modules:
 To install only the core module and no optional modules, leave the preference value blank:
 
     <preference name="cordova.plugins.diagnostic.modules" value="" />
+
+**IMPORTANT:** After adding the preference to your `config.xml`, you'll need to uninstall then re-install the plugin to your project to apply the changes:
+```
+cordova plugin rm cordova.plugins.diagnostic --nosave && cordova plugin add cordova.plugins.diagnostic --nosave
+```
 
 ### Available modules
 
@@ -870,7 +880,7 @@ The function is passed a single string parameter containing the error message.
 
 Platforms: Android and iOS
 
-Enables debug mode, which logs native debug messages to the native and JS consoles.
+Enables the plugin's debug mode, which logs native debug messages related to anything done with the plugin to the native and JS consoles.
 - For Android, log messages will appear in the native logcat output and in the JS console if Chrome Developer Tools is connected to the app Webview.
 - For iOS, log messages will appear in the native Xcode console output and in the JS console if Safari Web Inspector is connected to the app Webview.
 - Debug mode is initially disabled on plugin initialisation.
@@ -931,19 +941,17 @@ The function is passed a single string parameter containing the error message.
 #### Example usage
 
     cordova.plugins.diagnostic.isAirplaneModeEnabled(function(enabled){
-        console.log(`Airplane mode is currently ${enabled ? 'enabled' : 'disabled'}%`);
+        console.log(`Airplane mode is currently ${enabled ? 'enabled' : 'disabled'}`);
     });
 
-
-=======
     
 ### isMobileDataEnabled()
 
-Platforms: Android and iOS
+Platforms: Android
 
-Checks if mobile (cellular) data is currently enabled on the device.
+Checks if mobile (cellular) data is currently enabled in the device settings.
 
-On Android this requires permission `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
+Requires permission `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
 
 
     cordova.plugins.diagnostic.isMobileDataEnabled(successCallback, errorCallback);
@@ -959,7 +967,74 @@ The function is passed a single string parameter containing the error message.
 #### Example usage
 
     cordova.plugins.diagnostic.isMobileDataEnabled(function(enabled){
-        console.log(`Mobile data is currently ${enabled ? 'enabled' : 'disabled'}%`);
+        console.log(`Mobile data is currently ${enabled ? 'enabled' : 'disabled'}`);
+    });``
+
+### isMobileDataAuthorized()
+
+Platforms: iOS
+
+Checks if mobile data is authorized for this app.
+
+Returns true if the per-app Mobile Data setting is set to enabled (regardless of whether the device is currently connected to a cellular network)
+
+    cordova.plugins.diagnostic.isMobileDataAuthorized(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when operation is successful.
+  The function is passed a single boolean parameter which is TRUE if mobile data is authorized.
+- {Function} errorCallback -  The callback which will be called when operation encounters an error.
+  The function is passed a single string parameter containing the error message.
+
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isMobileDataAuthorized(function(authorized){
+        console.log(`Mobile data is currently ${authorized ? 'authorized' : 'unauthorized'}`);
+    });
+    
+### isAccessibilityModeEnabled()
+
+Platforms: Android and iOS
+
+Checks if Accessibility Mode (Talkback on Android, VoiceOver on iOS) is currently enabled on the device.
+
+    cordova.plugins.diagnostic.isAccessibilityModeEnabled(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when the operation is successful.
+This callback function is passed a single boolean parameter which is TRUE if accessibility mode is enabled.
+- {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+ This callback function is passed a single string parameter containing the error message.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isAccessibilityModeEnabled(function(enabled){
+        console.log(`Accessibility Mode is currently ${enabled ? 'enabled' : 'disabled'}`);
+    });
+    
+
+### isTouchExplorationEnabled()
+
+Platforms: Android
+
+Checks if touch exploration (in accessibility mode) is currently enabled on the device.
+
+    cordova.plugins.diagnostic.isTouchExplorationEnabled(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when the operation is successful.
+This callback function is passed a single boolean parameter which is TRUE if touch exploration (in accessibility mode) is enabled.
+- {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+ This callback function is passed a single string parameter containing the error message.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isTouchExplorationEnabled(function(enabled){
+        console.log(`touch exploration is currently ${enabled ? 'enabled' : 'disabled'}`);
     });
     
 
@@ -986,9 +1061,9 @@ The function is passed a single string parameter containing the error message.
 #### Example usage
 
     cordova.plugins.diagnostic.getDeviceOSVersion(function(details){
-        console.log(`Version: ${details.version}%`); // "13.0"
-        console.log(`API level: ${details.apiLevel}%`); // 33
-        console.log(`API name: ${details.apiName}%`); // "TIRAMISU"
+        console.log(`Version: ${details.version}`); // "13.0"
+        console.log(`API level: ${details.apiLevel}`); // 33
+        console.log(`API name: ${details.apiName}`); // "TIRAMISU"
     });
 
 ### getBuildOSVersion()
@@ -1015,13 +1090,32 @@ The function is passed a single string parameter containing the error message.
 #### Example usage
 
     cordova.plugins.diagnostic.getBuildOSVersion(function(details){
-        console.log(`Target API level: ${details.targetApiLevel}%`); // 33
-        console.log(`Target API name: ${details.targetApiLevel}%`); // "TIRAMISU"
-        console.log(`Minimum API level: ${details.targetApiLevel}%`); // 21
-        console.log(`Target API name: ${details.targetApiLevel}%`); // "LOLLIPOP"
+        console.log(`Target API level: ${details.targetApiLevel}`); // 33
+        console.log(`Target API name: ${details.targetApiLevel}`); // "TIRAMISU"
+        console.log(`Minimum API level: ${details.targetApiLevel}`); // 21
+        console.log(`Target API name: ${details.targetApiLevel}`); // "LOLLIPOP"
     });
 
+### isDebugBuild()
 
+Platforms: Android & iOS
+
+Checks if currently running app build is a debug build.
+
+    cordova.plugins.diagnostic.isDebugBuild(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when the operation is successful.
+  This callback function is passed a single boolean parameter which is TRUE if touch exploration (in accessibility mode) is enabled.
+- {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+  This callback function is passed a single string parameter containing the error message.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isDebugBuild(function(isDebug){
+        console.log(`current app build type is: ${isDebug ? 'debug' : 'release'}`);
+    });
 
 ## Location module
 
@@ -1574,7 +1668,7 @@ The function is passed a single string parameter containing the error message.
 #### Example usage
 
     cordova.plugins.diagnostic.getLocationAccuracyAuthorization(function(accuracy){
-       switch(status){
+       switch(accuracy){
            case cordova.plugins.diagnostic.locationAccuracyAuthorization.FULL:
                console.log("Full location accuracy is authorized");
                break;
@@ -1594,11 +1688,11 @@ Requests temporary access to full location accuracy for the application on iOS 1
 - By default on iOS 14+, when a user grants location permission, the app can only receive reduced accuracy locations.
 - If your app requires full (high-accuracy GPS) locations (e.g. a SatNav app), you need to call this method.
 - You must specify a purpose corresponds to a key in the `NSLocationTemporaryUsageDescriptionDictionary` entry in your app's `*-Info.plist` containing a message explaining the user why your app needs their exact location.
-You'll need to add this entry using a `<config-file>` block in your `config.xml`, e.g.:
+You'll need to add this entry using a `<config-file>` or `<edit-config>` block in your `config.xml`, e.g.:
 
 
     <platform name="ios">
-      <config-file platform="ios" target="*-Info.plist" parent="NSLocationTemporaryUsageDescriptionDictionary">
+      <config-file target="*-Info.plist" parent="NSLocationTemporaryUsageDescriptionDictionary">
         <dict>
           <key>navigation</key>
           <string>This app requires access to your exact location in order to provide SatNav route navigation.</string>
@@ -2191,7 +2285,9 @@ Platforms: Android & iOS
 Checks if camera is available.
 
 Notes:
-- On Android & iOS this returns true if the device has a camera AND the application is authorized to use it.
+- On Android this returns true if the device has a camera.
+- On iOS this returns true if both the device has a camera AND the application is authorized to use it.
+- On Windows 10 Mobile this returns true if both the device has a rear-facing camera AND the application is authorized to use it.
 
 Notes for Android:
 - By default this also checks run-time storage permissions in addition to `CAMERA` permission because [cordova-plugin-camera](https://github.com/apache/cordova-plugin-camera) requires both of these permission sets.
@@ -2257,7 +2353,7 @@ The function is passed a single string parameter containing the error message.
 
 Platforms: Android and iOS
 
-Returns the camera authorization status for the application.
+Returns the combined camera authorization status for the application based on the relevant permissions.
 
 Notes for Android:
 - This is intended for Android 6 / API 23 and above. Calling on Android 5.1 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
@@ -2283,6 +2379,42 @@ The function is passed a single string parameter containing the error message.
         function(status){
             if(status === cordova.plugins.diagnostic.permissionStatus.GRANTED){
                 console.log("Camera use is authorized");
+            }
+        }, function(error){
+            console.error("The following error occurred: "+error);
+        }, false
+    );
+
+### getCameraAuthorizationStatuses()
+
+Platforms: Android
+
+Returns the individual camera authorization statuses for each of the relevant permissions.
+
+Notes for Android:
+- This is intended for Android 6 / API 23 and above. Calling on Android 5.1 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
+- By default this also checks run-time storage permissions in addition to `CAMERA` permission because [cordova-plugin-camera](https://github.com/apache/cordova-plugin-camera) requires both of these permission sets.
+  - On Android 13+, storage permissions are `READ_MEDIA_IMAGES` and `READ_MEDIA_VIDEO`. On Android 12 and below, storage permissions are `READ_EXTERNAL_STORAGE` and `WRITE_EXTERNAL_STORAGE`.
+
+```
+cordova.plugins.diagnostic.getCameraAuthorizationStatuses(successCallback, errorCallback, storage)
+```
+
+#### Parameters
+- {Object} params - (optional) parameters:
+  - {Function} successCallback -  The callback which will be called when operation is successful.
+    The function is passed a single object parameter where each key indicates the permission name and the value indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+  - {Function} errorCallback -  The callback which will be called when operation encounters an error.
+    The function is passed a single string parameter containing the error message.
+  - {Boolean} storage - (Android only) If true, requests storage permissions in addition to `CAMERA` run-time permission. Defaults to true.
+
+
+#### Example usage
+
+    cordova.plugins.diagnostic.getCameraAuthorizationStatuses(
+        function(statuses){
+            for(var permission in statuses){
+                console.log(permission + " permission is: " + statuses[permission]));
             }
         }, function(error){
             console.error("The following error occurred: "+error);
@@ -2457,7 +2589,7 @@ Platforms: iOS
 - Can only be used if the automatic prompt to select limited library is disabled in the app's `Info.plist` by adding the following section to `<platform name="ios">` in the app's `config.xml`:
 
 ```xml
-<config-file parent="PHPhotoLibraryPreventAutomaticLimitedAccessAlert" platform="ios" target="*-Info.plist">
+<config-file target="*-Info.plist" parent="PHPhotoLibraryPreventAutomaticLimitedAccessAlert">
   <true/>
 </config-file>
 ```
@@ -2636,7 +2768,7 @@ The function is passed a single string parameter containing the error message.
                 console.log("Provisional permission granted");
                 break;
             case cordova.plugins.diagnostic.permissionStatus.EPHEMERAL:
-                console.log("Provisional permission granted");
+                console.log("Ephemeral permission granted");
                 break;
         }
     }, function(error){
@@ -2684,11 +2816,11 @@ Requests remote notifications authorization for the application.
 
 ### switchToNotificationSettings()
 
-Platforms: Android
+Platforms: Android & iOS
 
 Open notification settings for your app
 
-On Android versions lower than O, this will open the same page as `switchToSettings()`.
+On Android versions lower than O and on iOS versions lower than 15.4, this will open the same page as `switchToSettings()`.
 
     cordova.plugins.diagnostic.switchToNotificationSettings();
 
@@ -3438,7 +3570,7 @@ Checks if the application is authorized to use external storage.
 
 Notes for Android:
 - This is intended for Android 6 / API 23 and above. Calling on Android 5.1 / API 22 and below will always return TRUE as permissions are already granted at installation time.
-- This checks for `READ_EXTERNAL_STORAGE` `CAMERA` run-time permission.
+- This checks for `READ_EXTERNAL_STORAGE` run-time permission.
 
 ```
 cordova.plugins.diagnostic.isExternalStorageAuthorized(successCallback, errorCallback);
@@ -3556,8 +3688,6 @@ Whereas this method returns:
 
 which are on external removable storage.
 
-- Requires permission for `READ_EXTERNAL_STORAGE` run-time permission which must be added to `AndroidManifest.xml`.
-
 ```
 cordova.plugins.diagnostic.getExternalSdCardDetails(successCallback, errorCallback);
 ```
@@ -3572,7 +3702,7 @@ Each array entry is an object with the following keys:
     - {String} path - absolute path to the storage location
     - {String} filePath - absolute path prefixed with file protocol for use with cordova-plugin-file
     - {Boolean} canWrite - true if the location is writable
-    - {Integer} freeSpace - number of bytes of free space on the device on which the storage locaiton is mounted.
+    - {Integer} freeSpace - number of bytes of free space on the device on which the storage location is mounted.
     - {String} type - indicates the type of storage location: either "application" if the path is an Android application sandbox path or "root" if the path is the device root.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
 The function is passed a single string parameter containing the error message.
@@ -3758,7 +3888,6 @@ This is because the Android camera API requires access to the device's storage t
 On Android <=12, this requires the `WRITE_EXTERNAL_STORAGE` and `READ_EXTERNAL_STORAGE` permissions.
 On Android >12, this requires the `READ_MEDIA_IMAGES` and `READ_MEDIA_VIDEO` permissions.
 
-the `READ_EXTERNAL_STORAGE` permission.
 This is because the [cordova-plugin-camera@2.2+](https://github.com/apache/cordova-plugin-camera) requires both of these permissions.
 
 So to use this method in conjunction with the Cordova camera plugin, make sure you are using the most recent `cordova-plugin-camera` release: v2.2.0 or above.
@@ -3780,17 +3909,17 @@ When requesting permission to use device functionality, a message is displayed t
 These messages are stored in the `{project}-Info.plist` file under `NS*UsageDescription` keys.
 
 Upon installing this plugin into your project, it will add the following default messages to your plist.
-To override these defaults, you can use `<config-file>` blocks in your `config.xml`:
+To override these defaults, you can use `<edit-config>` blocks in your `config.xml`:
 
 `config.xml`
 
     <platform name="ios">
-        <config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+        <edit-config file="*-Info.plist" target="NSLocationAlwaysUsageDescription" mode="merge">
             <string>My custom message for always using location.</string>
-        </config-file>
-        <config-file platform="ios" target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+        </edit-config>
+        <edit-config file="*-Info.plist" target="NSLocationWhenInUseUsageDescription" mode="merge">
             <string>My custom message for using location when in use.</string>
-        </config-file>
+        </edit-config>
     </platform>
 
 # Example project

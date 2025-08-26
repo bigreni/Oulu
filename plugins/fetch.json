@@ -57,14 +57,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-purchase": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-purchase"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-inappbrowser": {
     "source": {
       "type": "registry",
@@ -95,6 +87,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-device@3.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-purchase": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-purchase"
     },
     "is_top_level": true,
     "variables": {}

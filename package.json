@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "cordova-android": "^13.0.0",
+    "cordova-android": "^14.0.1",
     "cordova-plugin-apprate": "^1.8.0",
     "cordova-plugin-device": "^3.0.0",
     "cordova-plugin-dialogs": "^2.0.2",
@@ -8,10 +8,10 @@
     "cordova-plugin-idfa": "^3.0.0",
     "cordova-plugin-inappbrowser": "^6.0.0",
     "cordova-plugin-nativestorage": "^2.3.2",
-    "cordova-plugin-purchase": "^13.11.1",
+    "cordova-plugin-purchase": "^13.12.1",
     "cordova-plugin-wkwebview-file-xhr": "^3.1.1",
     "cordova-support-android-plugin": "~2.0.4",
-    "cordova.plugins.diagnostic": "^7.1.4"
+    "cordova.plugins.diagnostic": "^7.2.3"
   },
   "cordova": {
     "plugins": {
@@ -24,14 +24,17 @@
       "cordova-plugin-idfa": {
         "ANDROID_PLAY_ADID_VERSION": "17.0.+"
       },
-      "cordova-plugin-purchase": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-wkwebview-file-xhr": {},
       "admob-plus-cordova": {
         "APP_ID_ANDROID": "ca-app-pub-9249695405712287~8295282753"
       },
       "cordova-plugin-device": {},
-      "cordova.plugins.diagnostic": {}
+      "cordova-plugin-purchase": {},
+      "cordova.plugins.diagnostic": {
+        "ANDROIDX_VERSION": "1.0.0",
+        "ANDROIDX_APPCOMPAT_VERSION": "1.3.1"
+      }
     },
     "platforms": [
       "android"

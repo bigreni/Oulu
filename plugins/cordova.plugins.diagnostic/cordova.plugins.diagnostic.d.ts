@@ -305,6 +305,17 @@ interface Diagnostic {
         successCallback: () => void
     ) => void;
 
+    /**
+     * Returns true if the current build is a debug build.
+     * @param successCallback
+     * @param errorCallback
+     */
+    isDebugBuild?: (
+        successCallback: (enabled: boolean) => void,
+        errorCallback: (error: string) => void
+    ) => void;
+
+
 
     /**
      * ANDROID ONLY
@@ -332,6 +343,44 @@ interface Diagnostic {
         errorCallback: (error: string) => void
     ) => void;
 
+    /**
+     * IOS ONLY
+     *
+     * Checks if mobile data is authorized for this app.
+     *
+     * @param successCallback
+     * @param errorCallback
+     */
+    isMobileDataAuthorized?: (
+        successCallback: () => boolean,
+        errorCallback: (error: string) => void
+    ) => void;
+
+    /**
+     *
+     * Checks if accessibility mode is enabled on device.
+     *
+     * @param successCallback
+     * @param errorCallback
+     */
+    isAccessibilityModeEnabled?: (
+            successCallback: () => boolean,
+            errorCallback: (error: string) => void
+        ) => void;
+
+    /**
+     * ANDROID ONLY
+     *
+     * Checks if touch exploration of accessibility mode is enabled on device.
+     *
+     * @param successCallback
+     * @param errorCallback
+     */
+    isTouchExplorationEnabled?: (
+        successCallback: () => boolean,
+        errorCallback: (error: string) => void
+    ) => void;
+        
     /**
      * Returns details of the OS of the device on which the app is currently running
      *
@@ -1012,6 +1061,14 @@ interface Diagnostic {
      */
     isRemoteNotificationsEnabled?: (
         successCallback: (enabled: boolean) => void,
+        errorCallback: (error: string) => void
+    ) => void;
+
+    /**
+     * Opens the notification settings page for this app.
+     */
+    switchToNotificationSettings?: (
+        successCallback: () => void,
         errorCallback: (error: string) => void
     ) => void;
 

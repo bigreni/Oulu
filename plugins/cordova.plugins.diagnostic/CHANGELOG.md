@@ -1,5 +1,48 @@
 # CHANGELOG
 
+**v7.2.3**
+* (android) bugfix: dynamically resolve BuildConfig class (and remove hard-coded example app package name) when determining isDebugBuild()
+
+**v7.2.2**
+* (ios & android) feat: add isDebugBuild()
+* fix: Separate isMobileDataEnabled() for Android vs isMobileDataAuthorized() for iOS. 
+  * Resolves [#482](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/482)
+
+
+**v7.2.1**
+* (android) fix logic in native resolution of single combined permission status in `getCameraAuthorizationStatus()` so it handles case where storage permissions are not requested
+
+**v7.2.0**
+* (android) feat: direct getExternalSdCardDetails without permission request
+  * Merged from PR [#501](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/501)
+* (doc) Add note about reinstalling plugin after adding modules preference to config.xml
+* (doc) Clarify functionality of `enableDebug()` method
+  * Merged from PR [#522](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/522)
+* (ios) Add conditions to not use CTCellularData on Mac Catalyst.
+  * Merged from PR [#521](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/521)
+  * Resolves [#520](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/520)
+* (ios) feat: add switchToNotificationSettings function for iOS platform
+  * Merged from PR [#517](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/517)
+* (ios) feat: add Resource Bundle to provide the Privacy Manifest
+  * Merged from PR [#516](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/516)
+* (android) fix: Bump WRITE_EXTERNAL_STORAGE to 32 for camera
+  * Merged from PR [#510](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/510)
+  * Resolves [#518](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/518)
+* (doc) fix: recommend use of `<edit-config>` instead of `<config-file>`
+  * Merged from PR [#505](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/505)
+* (android) fix: remove unused imports
+  * Merged from PR [#504](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/504)
+* (doc) correct example log for Ephemeral permission granted
+  * Merged from PR [#503](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/503)
+* (android) fix: replace deprecated StatFs functions
+  * Merged from PR [#502](https://github.com/dpa99c/cordova-diagnostic-plugin/pull/502)
+* (android) improve camera authorisation handling and support new behaviour in API 34 / Android 14
+  * Add `getCameraAuthorizationStatuses()` to return the individual statuses of requested permissions related to camera
+  * Change `getCameraAuthorizationStatus()` to natively derive the single combined status result based upon build SDK version and requested permission statuses
+    * Return a `LIMITED` status on Android 14 if user selects limited access to photo library (return `GRANTED` if user selects to allow access to all)
+  * Resolves [#519](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/519)
+
+
 **v7.1.4**
 * (android) bugfix: decide if a permission is implicitly granted by checking if the device runtime is less than, but the build SDK used for the app is greater is or equal than, the SDK version in which the permission was added.
   * Resolves [#508](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/508)
