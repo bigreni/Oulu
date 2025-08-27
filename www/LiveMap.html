@@ -1303,7 +1303,7 @@
                         "vendors~map": 1,
                         map: 1
                     }[e] && a.push(d[e] = new Promise((function(a, n) {
-                        for (var i = "www/css/" + ({
+                        for (var i = "https://s3.us-east-2.amazonaws.com/bigreni.com/css/oulu/" + ({
                             admin: "admin",
                             about: "about",
                             "accessibility-report": "accessibility-report",
@@ -1407,7 +1407,7 @@
                             map: "50bae6eb0c5c5e205d63",
                             "vendors~mqtt": "31d6cfe0d16ae931b73c",
                             mqtt: "31d6cfe0d16ae931b73c"
-                        }[e] + ".css", t = r.p + i, c = document.getElementsByTagName("link"), m = 0; m < c.length; m++) {
+                        }[e] + ".css", t = i, c = document.getElementsByTagName("link"), m = 0; m < c.length; m++) {
                             var f = (b = c[m]).getAttribute("data-href") || b.getAttribute("href");
                             if ("stylesheet" === b.rel && (f === i || f === t))
                                 return a()
@@ -1461,7 +1461,7 @@
                             m.timeout = 120,
                             r.nc && m.setAttribute("nonce", r.nc),
                             m.src = function(e) {
-                                return r.p + "www/js/" + {
+                                return "https://s3.us-east-2.amazonaws.com/bigreni.com/js/oulu/" + {
                                     0: "d3eb779cd4ffe04416f8",
                                     1: "fc815e68549d5a7cf5b6",
                                     2: "9655eac544c407ee14f1",
