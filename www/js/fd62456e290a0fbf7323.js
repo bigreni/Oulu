@@ -5010,7 +5010,7 @@
                     }, m.title)) : g.c && r ? s.a.createElement("div", {
                         className: "navi-logo",
                         style: {
-                            backgroundImage: "url(" + r + ")"
+                            //backgroundImage: "url(" + r + ")"
                         }
                     }) : s.a.createElement("div", {
                         className: "navi-logo",
@@ -5080,11 +5080,11 @@
                         },
                         "aria-label": f.formatMessage({
                             id: "links",
-                            defaultMessage: "Links"
+                            defaultMessage: "Data Sources"
                         })
                     }, s.a.createElement(l.a, {
                         id: "links",
-                        defaultMessage: "Links"
+                        defaultMessage: "Data Sources"
                     }))), m.appBarLink && s.a.createElement("div", {
                         className: "padding-left-large navi-margin"
                     }, s.a.createElement(u.a, Object.assign({
@@ -5201,7 +5201,7 @@
                     }, i) : b.c && n ? o.a.createElement("div", {
                         className: "logo",
                         style: {
-                            backgroundImage: "url(" + n + ")"
+                            //backgroundImage: "url(" + n + ")"
                         }
                     }) : o.a.createElement("div", {
                         className: "logo",
@@ -16286,7 +16286,7 @@
                     "leaving-at": "Leaving at",
                     "likely-to-recommend": "How likely are you to recommend our service to your friends or colleagues?",
                     "likely-to-use": "How likely are you to use this service rather than the current Journey Planner?",
-                    links: "Links",
+                    links: "Data Sources",
                     loading: "Loading...",
                     locate: "Detect location",
                     "location-examples": "e.g. Home, Work, School,...",
